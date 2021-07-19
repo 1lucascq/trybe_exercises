@@ -1,1 +1,0 @@
-ca ta pri 

@@ -1,9 +1,0 @@
-Internet
-Unix
-Bash
-HTML
-CSS
-JavaScript
-React
-SQL
-Visual Studio Code

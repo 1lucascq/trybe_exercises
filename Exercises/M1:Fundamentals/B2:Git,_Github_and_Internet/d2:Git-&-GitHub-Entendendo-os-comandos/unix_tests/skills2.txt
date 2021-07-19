@@ -8,3 +8,4 @@ React
 SQL
 R
 Python
+VS Code

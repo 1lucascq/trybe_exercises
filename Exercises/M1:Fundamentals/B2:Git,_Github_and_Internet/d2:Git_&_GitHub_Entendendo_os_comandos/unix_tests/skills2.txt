@@ -1,0 +1,11 @@
+Internet
+Unix
+Bash
+HTML
+CSS
+JavaScript
+React
+SQL
+R
+Python
+VS Code

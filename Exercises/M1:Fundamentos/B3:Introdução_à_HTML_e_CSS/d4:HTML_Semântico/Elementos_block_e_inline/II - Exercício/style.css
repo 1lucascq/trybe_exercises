@@ -85,12 +85,7 @@ td {
 
 .fotoStomatopoda {
     width: 400px;
-    display: inline-block;
-    padding-left: 40px;
-}
-
-.oQueÉ {
-    width: 800px;
+    padding-left: 470px;
 }
 
 .fotoStomatopoda, .oQueÉ {
@@ -98,11 +93,13 @@ td {
 }
 
 .fotoCores {
-    width: 300px;
+    width: 400px;
+    padding-left: 470px;
 }
 
 .fotoBrabo {
-    width: 300px;
+    width: 400px;
+    padding-left: 470px;
 }
 
 .listaMenuNav {
@@ -114,6 +111,11 @@ td {
 .menuFixo {
     background-color: #121212;
 }
+
+.video {
+    padding-left: 400px;
+}
+
 
 .referencias {
     color: #121212;

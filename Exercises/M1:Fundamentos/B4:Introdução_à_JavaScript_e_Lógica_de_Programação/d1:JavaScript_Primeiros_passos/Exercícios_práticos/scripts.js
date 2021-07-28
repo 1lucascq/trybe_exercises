@@ -78,3 +78,126 @@ if (valor5a + valor5b + valor5c === 180) {
   }
 
 //6. Escreva um programa que receba o nome de uma peça de xadrez e retorne os movimentos que ela faz.
+let valor6 = "PeÃO";
+if (valor6.toLowerCase(valor6) === "rainha") {
+  console.log("Rainha: todos os lados quaisquer número de casas")
+}
+  else if (valor6.toLowerCase(valor6) === "rei") {
+    console.log("Rei: uma casa para qualquer lado")
+  }  
+  else if (valor6.toLowerCase(valor6) === "peão") {
+    console.log("Peão: uma casa para frente")
+  }
+  else if (valor6.toLowerCase(valor6) === "cavalo") {
+    console.log("Cavalo: movimento em L, sendo 3 casas para um lado e 2 para o outro")
+  }
+  else if (valor6.toLowerCase(valor6) === "bispo") {
+    console.log("Bispo: quaisquer número de casas na diagonal")
+  }
+  else if (valor6.toLowerCase(valor6) === "torre") {
+    console.log("Torre: quaisquer número de casas em linha horizontal ou vertical")
+  }
+  else {
+    console.log("Verifique a palavra digitada")
+  }
+ 
+//7. Escreva um programa que converte uma nota dada em porcentagem (de 0 a 100) em conceitos de A a F.
+let valor7 = 99;
+if (valor7 < 0 || valor7 > 100) {
+  console.log("Confira a nota!!!");
+} 
+  else if (valor7 >= 90) {
+  console.log("A");
+} 
+  else if (valor7 >= 80) {
+  console.log("B");
+} 
+  else if (valor7 >= 70) {
+  console.log("C");
+} 
+  else if (valor7 >= 60) {
+  console.log("D");
+} 
+  else if (valor7 >= 50) {
+  console.log("E");
+} 
+  else {
+  console.log("F");
+}
+//8. Escreva um programa que defina três números em variáveis e retorne true se pelo menos uma das três for par.
+//Caso contrário, ele retorna false.
+let valor8a = 15;
+let valor8b = 12;
+let valor8c = 13;
+if (valor8a % 2 === 0 || valor8b % 2 === 0 || valor8c % 2 === 0) {
+  console.log("Pelo menos um número é par");
+}
+  else {
+    console.log("Todos os números são ímpares");
+  }
+//9. Escreva um programa que defina três números em variáveis e retorne true se pelo menos uma das três for ímpar.
+//Caso contrário, ele retorna false.
+let valor9a = 4;
+let valor9b = 6;
+let valor9c = 2;
+if (valor9a % 2 != 0 || valor9b % 2 != 0 || valor9c % 2 != 0) {
+  console.log("Pelo menos um número é impar");
+}
+  else {
+    console.log("Todos os números são pares");
+  }
+
+//10. Escreva um programa que se inicie com dois valores em duas variáveis diferentes: o custo de um produto e seu
+//valor de venda. A partir dos valores, calcule quanto de lucro (valor de venda descontado o custo do produto) a 
+//empresa terá ao vender mil desses produtos.
+let valor10a = 10;
+let valor10b = 15;
+let valor10c;
+if (valor10c = valor10b * 1000 - valor10a * 1000) {
+  console.log(valor10c + " é o lucro obtido com as vendas")
+}
+
+//11. Uma pessoa que trabalha de carteira assinada no Brasil tem descontados de seu salário bruto o INSS e o IR.
+//Faça um programa que, dado um salário bruto, calcule o líquido a ser recebido.
+let salario = 2000;
+let aliquotaINSS;
+let aliquotaINSSMaxima;
+let aliquotaIR;
+let salarioDescontadoINSS;
+let salarioLiquido;
+if (salario >= 1556.95 && salario <= 2594.92) {
+  console.log(aliquotaINSS = 9)
+} 
+  else if (salario > 2594.92 && salario <= 5189.82) {
+    console.log(aliquotaINSS = 11)
+} 
+  else if (salario > 5189.82) {
+    console.log(aliquotaINSSMaxima = 570.88)
+} 
+  else {
+    console.log(aliquotaINSS = 8)  
+} 
+
+// if (salario < 1903.98) {
+//   console.log(aliquotaIR = 0)
+// } 
+//   else if (salario > 1903.98 && salario <= 2826.65) {
+//     console.log(aliquotaIR = 7.5)
+// } 
+//   else if (salario >= 2826.66 && salario <= 3751.05) {
+//     console.log(aliquotaIR = 15)
+  
+// } 
+//   else if (salario >= 3751.06 && salario <= 4664.68) {
+//     console.log(aliquotaIR = 22.5)
+  
+// } 
+//   else if (salario > 4664.68 && salario <= 2826.65) {
+//     console.log(aliquotaIR = 27.5)
+  
+// } 
+//   else {
+  
+// }
+
+

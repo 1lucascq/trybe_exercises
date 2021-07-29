@@ -1,7 +1,5 @@
-//1. Diga os comandos necessários para que seu programa rode as operações descritas:
-
 const { EIDRM } = require("constants");
-
+//1. Diga os comandos necessários para que seu programa rode as operações descritas:
 //A) Adição
 let valor1A1 = 3;
 let valor1A2 = 2;
@@ -31,9 +29,9 @@ if (valor2a > valor2b) {
   else if (valor2b > valor2a){
     console.log(valor2b + " é maior")
   }
-  else {
+else {
     console.log("valores iguais")
-  }
+}
 //3. Faça um programa que retorne o maior de três números. Defina no começo do programa três variáveis com os valores que serão comparados.
 let valor3a = 5;
 let valor3b = 8;
@@ -47,9 +45,9 @@ if (valor3a > valor3b && valor3a > valor3c) {
   else if (valor3c > valor3a && valor3c > valor3b){
     console.log(valor3c + " é maior")
   }
-  else {
+else {
     console.log("valores iguais")
-  }
+}
 //4. Faça um programa que, dado um valor definido numa variável, retorne "positive" se esse valor for positivo, "negative" se for negativo e "zero" caso contrário.
 let valor4 = 129.123;
 if (valor4 > 0) {
@@ -58,9 +56,9 @@ if (valor4 > 0) {
   else if (valor4 < 0) {
     console.log("negative")
   }
-  else {
+else {
     console.log("zero")
-  }
+}
 //5. Faça um programa que defina três variáveis com os valores dos três ângulos internos de um triângulo.
 //Retorne true se os ângulos representarem os ângulos de um triângulo e false , caso contrário.
 //Se algum ângulo for inválido o programa deve retornar uma mensagem de erro.
@@ -73,9 +71,9 @@ if (valor5a + valor5b + valor5c === 180) {
   else if (valor5a + valor5b + valor5c < 0) {
     console.log("Erro!!!")
   }
-  else {
+else {
     console.log(false)
-  }
+}
 
 //6. Escreva um programa que receba o nome de uma peça de xadrez e retorne os movimentos que ela faz.
 let valor6 = "PeÃO";
@@ -97,9 +95,9 @@ if (valor6.toLowerCase(valor6) === "rainha") {
   else if (valor6.toLowerCase(valor6) === "torre") {
     console.log("Torre: quaisquer número de casas em linha horizontal ou vertical")
   }
-  else {
+else {
     console.log("Verifique a palavra digitada")
-  }
+}
  
 //7. Escreva um programa que converte uma nota dada em porcentagem (de 0 a 100) em conceitos de A a F.
 let valor7 = 99;
@@ -108,20 +106,20 @@ if (valor7 < 0 || valor7 > 100) {
 } 
   else if (valor7 >= 90) {
   console.log("A");
-} 
+  } 
   else if (valor7 >= 80) {
   console.log("B");
-} 
+  } 
   else if (valor7 >= 70) {
   console.log("C");
-} 
+  } 
   else if (valor7 >= 60) {
   console.log("D");
-} 
+  } 
   else if (valor7 >= 50) {
   console.log("E");
-} 
-  else {
+  } 
+else {
   console.log("F");
 }
 //8. Escreva um programa que defina três números em variáveis e retorne true se pelo menos uma das três for par.
@@ -132,9 +130,9 @@ let valor8c = 13;
 if (valor8a % 2 === 0 || valor8b % 2 === 0 || valor8c % 2 === 0) {
   console.log("Pelo menos um número é par");
 }
-  else {
+else {
     console.log("Todos os números são ímpares");
-  }
+}
 //9. Escreva um programa que defina três números em variáveis e retorne true se pelo menos uma das três for ímpar.
 //Caso contrário, ele retorna false.
 let valor9a = 4;
@@ -143,9 +141,9 @@ let valor9c = 2;
 if (valor9a % 2 != 0 || valor9b % 2 != 0 || valor9c % 2 != 0) {
   console.log("Pelo menos um número é impar");
 }
-  else {
+else {
     console.log("Todos os números são pares");
-  }
+}
 
 //10. Escreva um programa que se inicie com dois valores em duas variáveis diferentes: o custo de um produto e seu
 //valor de venda. A partir dos valores, calcule quanto de lucro (valor de venda descontado o custo do produto) a 
@@ -159,45 +157,69 @@ if (valor10c = valor10b * 1000 - valor10a * 1000) {
 
 //11. Uma pessoa que trabalha de carteira assinada no Brasil tem descontados de seu salário bruto o INSS e o IR.
 //Faça um programa que, dado um salário bruto, calcule o líquido a ser recebido.
-let salario = 2000;
+let salario = 12000.0;
 let aliquotaINSS;
-let aliquotaINSSMaxima;
 let aliquotaIR;
-let salarioDescontadoINSS;
+let deducaoIR;
+let salarioBase;
 let salarioLiquido;
+let valorIR;
+
 if (salario >= 1556.95 && salario <= 2594.92) {
-  console.log(aliquotaINSS = 9)
-} 
-  else if (salario > 2594.92 && salario <= 5189.82) {
-    console.log(aliquotaINSS = 11)
-} 
-  else if (salario > 5189.82) {
-    console.log(aliquotaINSSMaxima = 570.88)
-} 
-  else {
-    console.log(aliquotaINSS = 8)  
+  aliquotaINSS = 0.09;
+} else if (salario > 2594.92 && salario <= 5189.82) {
+  aliquotaINSS = 0.11;
+} else if (salario < 1556.95) {
+  aliquotaINSS = 0.08; 
+} else if (salario > 5189.82) {
+  aliquotaINSS = 570.08;
 } 
 
-// if (salario < 1903.98) {
-//   console.log(aliquotaIR = 0)
-// } 
-//   else if (salario > 1903.98 && salario <= 2826.65) {
-//     console.log(aliquotaIR = 7.5)
-// } 
-//   else if (salario >= 2826.66 && salario <= 3751.05) {
-//     console.log(aliquotaIR = 15)
-  
-// } 
-//   else if (salario >= 3751.06 && salario <= 4664.68) {
-//     console.log(aliquotaIR = 22.5)
-  
-// } 
-//   else if (salario > 4664.68 && salario <= 2826.65) {
-//     console.log(aliquotaIR = 27.5)
-  
-// } 
-//   else {
-  
-// }
+// Salário base
+if (salario > 5189.82) {
+  salarioBase = salario - aliquotaINSS;
+} else {
+  salarioBase = salario - (salario * aliquotaINSS);
+}
 
+// Alíquota IR
+if (salarioBase < 1903.98) {
+  aliquotaIR = 0;
+} 
+  else if (salarioBase > 1903.98 && salarioBase <= 2826.65) {
+    aliquotaIR = 0.075;
+  } 
+  else if (salarioBase >= 2826.66 && salarioBase <= 3751.05) {
+    aliquotaIR = 0.15;
+  
+  } 
+  else if (salarioBase >= 3751.06 && salarioBase <= 4664.68) {
+    aliquotaIR = 0.225;
+  
+  } 
+else {
+    aliquotaIR = 0.275;
+}
 
+if (salarioBase < 1903.98) {
+  deducaoIR = 0;
+} 
+  else if (salarioBase > 1903.98 && salarioBase <= 2826.65) {
+    deducaoIR = 142.8;
+  } 
+  else if (salarioBase >= 2826.66 && salarioBase <= 3751.05) {
+    deducaoIR = 354.8;
+  
+  } 
+  else if (salarioBase >= 3751.06 && salarioBase <= 4664.68) {
+    deducaoIR = 636.13;
+  
+  } 
+else {
+    deducaoIR = 869.36;
+}
+
+valorIR = (salarioBase * aliquotaIR) - deducaoIR;
+salarioLiquido = salarioBase - valorIR;
+
+console.log(salarioLiquido)

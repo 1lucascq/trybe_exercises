@@ -45,38 +45,48 @@ for (let i2 = 0; i2 < triangulo; i2 += 1) {
 
 //3- Agora inverta o lado do triângulo.:
 console.log("Exercício 3")
-let trianguloInvertido = 5;
+
+let trianguloInv = 5;
 let asterisco3 = "*";
 let resultado3 = "";
-let espaços = trianguloInvertido;
-for (let iLinhas3 = 0; iLinhas3 < trianguloInvertido; iLinhas3 += 1) {
-  for (let index3 = 0; index3 <= trianguloInvertido; index3 += 1) {
-    if (index3 < espaços) {
-      resultado3 = resultado3 + " ";
+let espacos = trianguloInv;
+
+for (let numeroLinhas = 0; numeroLinhas <= trianguloInv; numeroLinhas += 1) {
+  for (let colocarEspacos = 0; colocarEspacos <= trianguloInv; colocarEspacos += 1) {
+    if (colocarEspacos <= espacos) {
+      resultado3 = resultado3 + " "
     } else {
-      resultado3 = resultado3 + asterisco3;
+      resultado3 = resultado3 + asterisco3
     }
   }
-  resultado3 = "";
-  espaços -= 1;
-  console.log(resultado3);
+console.log(resultado3)
+resultado3 = "";
+espacos -= 1
 }
 
 
-let n = 5;
-let symbol = '*';
-let inputLine = '';
-let inputPosition = n;
+//4- Depois, faça uma pirâmide com n asteriscos de base:
+console.log("Exercício 4")
 
-for (let lineIndex = 0; lineIndex < n; lineIndex += 1) {
-  for (let columnIndex = 0; columnIndex <= n; columnIndex += 1) {
-    if (columnIndex < inputPosition) {
-      inputLine = inputLine + ' ';
+
+let piramide = 6;
+let asterisco4 = "*";
+let resultado4 = "";
+let meio = (piramide + 1) / 2;
+let espacosE = meio;
+let espacosD = meio;
+
+
+for (let numeroLinhas = 0; numeroLinhas <= meio; numeroLinhas += 1) {
+  for (let i = 0; i <= piramide; i += 1) {
+    if (i > espacosE && i < espacosD) {
+      resultado4 = resultado4 + asterisco4
     } else {
-      inputLine = inputLine + symbol;
+      resultado4 = resultado4 + " "
     }
   }
-  console.log(inputLine);
-  inputLine = '';
-  inputPosition -= 1;
-};
+  console.log(resultado4)
+  resultado4 = "";
+  espacosD += 1
+  espacosE -= 1
+}

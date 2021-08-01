@@ -69,7 +69,7 @@ espacos -= 1
 console.log("Exercício 4")
 
 
-let piramide = 6;
+let piramide = 5;
 let asterisco4 = "*";
 let resultado4 = "";
 let meio = (piramide + 1) / 2;
@@ -90,3 +90,44 @@ for (let numeroLinhas = 0; numeroLinhas <= meio; numeroLinhas += 1) {
   espacosD += 1
   espacosE -= 1
 }
+
+
+//      BÔNUS
+// 5- Faça uma pirâmide com n asteriscos de base que seja vazia no meio. Assuma que o valor de n será sempre ímpar:
+console.log("Exercício 5")
+
+
+let piramideVazia = 9;
+let asterisco5 = "*";
+let resultado5 = "";
+let meio2 = (piramideVazia + 1) / 2;
+let espacosE2 = meio2 - 1;
+let espacosD2 = meio2 - 1;
+
+
+for (let numeroLinhas = 0; numeroLinhas < meio2; numeroLinhas += 1) {
+  for (let i = 0; i < piramideVazia; i += 1) {
+    if (i === espacosE2 || i === espacosD2 || numeroLinhas === meio2 - 1) {
+      resultado5 = resultado5 + asterisco5
+    } else {
+      resultado5 = resultado5 + " "
+    }
+  }
+  console.log(resultado5)
+  resultado5 = "";
+  espacosD2 += 1
+  espacosE2 -= 1
+}
+
+
+//6- Faça um programa que diz se um número definido numa variável é primo ou não.
+// console.log("Exercício 6")
+
+// let ehPrimoOuNao = 7;
+// let resultado6 = 0;
+// for (let i6 = 0; i6 <= ehPrimoOuNao; i6 += 1) {
+//   if (ehPrimoOuNao % i6 === 0) {
+//     resultado6 += 1;
+//   }
+// }
+// console.log(resultado6)

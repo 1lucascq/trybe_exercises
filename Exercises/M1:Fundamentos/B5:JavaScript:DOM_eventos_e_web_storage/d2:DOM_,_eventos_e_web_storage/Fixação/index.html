@@ -1,0 +1,69 @@
+<head></head>
+<body>
+<main id="paiDoPai">
+  <section id="pai">
+    <section id="primeiroFilho"></section>
+    <section id="elementoOndeVoceEsta">
+      <section id="primeiroFilhoDoFilho"></section>
+      <section id="segundoEUltimoFilhoDoFilho"></section>
+    </section>
+    Atenção!
+    <section id="terceiroFilho"></section>
+    <section id="quartoEUltimoFilho"></section>
+  </section>
+  <script>
+// Acesse o elemento elementoOndeVoceEsta .
+let elementoOndeVoceEsta = document.querySelector('#elementoOndeVoceEsta');
+
+// Acesse pai a partir de elementoOndeVoceEsta e adicione uma color a ele.
+let pai = document.querySelector('#elementoOndeVoceEsta').parentNode;
+pai.style.color = 'purple';
+
+// Acesse o primeiroFilhoDoFilho e adicione um texto a ele. Você se lembra dos vídeos da aula anterior, como fazer isso?
+let primeiroFilhoDoFilho = document.querySelector('#primeiroFilhoDoFilho');
+primeiroFilhoDoFilho.innerText = 'Testando a questão 2';
+
+// Acesse o primeiroFilho a partir de pai.
+let primeiroFilho = pai.firstElementChild;
+
+// Agora acesse o primeiroFilho a partir de elementoOndeVoceEsta.
+let primeiroFilho2 = elementoOndeVoceEsta.previousElementSibling;
+
+// Agora acesse o texto Atenção! a partir de elementoOndeVoceEsta.
+let atenção = elementoOndeVoceEsta.nextSibling;
+
+// Agora acesse o terceiroFilho a partir de elementoOndeVoceEsta.
+let terceiroFilho = elementoOndeVoceEsta.nextElementSibling;
+
+// Agora acesse o terceiroFilho a partir de pai.
+let terceiroFilho2 = pai.lastElementChild.previousElementSibling;
+
+// Crie um irmão para elementoOndeVoceEsta.
+let irmaoDoElementoOVcTa = document.createElement('section');
+pai.appendChild(irmaoDoElementoOVcTa);
+
+// Crie um filho para elementoOndeVoceEsta.
+let filhoDoElementoOnVcTa = document.createElement('section');
+elementoOndeVoceEsta.appendChild(filhoDoElementoOnVcTa);
+
+// Crie um filho para primeiroFilhoDoFilho.
+let filhoDoPrimFilhoDoFilho = document.createElement('section');
+primeiroFilhoDoFilho.appendChild(filhoDoPrimFilhoDoFilho);
+
+// A partir desse filho criado, acesse terceiroFilho.
+primeiroFilhoDoFilho.parentElement.parentElement.nextElementSibling
+
+// Remova todos os elementos filhos de paiDoPai exceto pai, elementoOndeVoceEsta e primeiroFilhoDoFilho.
+filhoDoElementoOnVcTa.remove();
+pai.removeChild(primeiroFilho);
+terceiroFilho.remove();
+filhoDoPrimFilhoDoFilho.remove();
+let quartoEUltimoFilho = document.getElementById('quartoEUltimoFilho');
+quartoEUltimoFilho.remove();
+let segundoEUltimoFilhoDoFilho = document.getElementById('segundoEUltimoFilhoDoFilho');
+segundoEUltimoFilhoDoFilho.remove();
+primeiroFilho.remove();
+
+  </script>
+</main>
+</body>

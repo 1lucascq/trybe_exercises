@@ -48,15 +48,68 @@ function criarBotão(feriados) {
   feriados.innerText = 'Feriados';
   let divButtons = document.querySelector('.buttons-container');
   divButtons.appendChild(feriados);
+  
 }
 criarBotão()
 
 //          Exercício 3:
+// Implemente uma função que adicione ao botão "Feriados" um evento de "click" que muda a cor de fundo dos dias que possuem a classe "holiday".
+  // É interessante que este botão possua também a lógica inversa. Ao ser clicado novamente ele retorna à configuração inicial com a cor "rgb(238,238,238)" .
+let feriadosButton = document.querySelector('#btn-holiday');
+let holidays = document.querySelectorAll('.holiday');
+let backgroundDefaultColor = "rgb(238,238,238)";
+let newBackground = 'gold';
+
+feriadosButton.addEventListener('click', function () {
+  for (let holiday of holidays) {
+    if (holiday.style.backgroundColor === newBackground)
+      holiday.style.backgroundColor = backgroundDefaultColor;
+    else {
+      holiday.style.backgroundColor = newBackground;
+    }
+  }
+})
 
 //          Exercício 4:
+//Implemente uma função que receba como parâmetro a string "Sexta-feira" e crie dinamicamente um botão com o nome "Sexta-feira".
+  //Adicione a este botão o ID "btn-friday" .
+  //Adicione este botão como filho/filha da tag <div> com classe "buttons-container".
+  
+function criandoSextouButton(sextaFeira) {
+  sextaFeira = document.createElement('button');
+  sextaFeira.innerText = 'Sexta-Feira';
+  sextaFeira.id = 'btn-friday'
+  let divButtons = document.querySelector('.buttons-container');
+  divButtons.appendChild(sextaFeira);
+
+}
+criandoSextouButton()
+
+
 //          Exercício 5:
+//Implemente uma função que adicione ao botão "Sexta-feira" um evento de "click" que modifica o texto exibido nos dias que são Sexta-feira.
+  //É interessante que este botão possua também a lógica inversa. Ao ser clicado novamente ele retorna à configuração inicial exibindo os dias.
+let sextas = document.getElementsByClassName('friday');
+let sextaButton = document.querySelector('#btn-friday');
+let sextaText = 'SEXTOUUOU';
+let arraySextas = [4, 11, 18, 25]
+sextaButton.addEventListener('click', function() {
+  for (let sexta = 0; sexta < sextas.length; sexta += 1) {
+    if (sextas[sexta].innerHTML !== sextaText){
+      sextas[sexta].innerHTML = sextaText;
+    } else {
+      sextas[sexta].innerHTML = arraySextas[sexta];
+    }
+  }
+})
+
+
 //          Exercício 6:
+
 //          Exercício 7:
+
 //          Exercício 8:
+
 //          Exercício 9:
+
 //          Exercício 10:

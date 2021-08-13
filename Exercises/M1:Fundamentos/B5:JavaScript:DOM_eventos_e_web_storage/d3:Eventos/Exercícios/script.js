@@ -138,15 +138,28 @@ zoomOut();
   input = document.querySelector('#task-input');
   
   if (input.value.length > 0) {
-    let span = document.createElement('span');
-    span.innerText = input.value;
-    span.innerText += '; ';
-    div.appendChild(span);
+    let li = document.createElement('li');
+    li.innerText = input.value;
+    li.innerText += ';';
+    div.appendChild(li);
+  } else {
+    window.alert('Ops... Corrija este compromisso!!')
   }
+}
   
+function addTaskKeuUp (event) {
+  let div = document.querySelector('.my-tasks');
+  if (event.key === 'Enter' && input.value.length > 0) {
+    let li = document.createElement('li');
+    li.innerText = input.value;
+    li.innerText += ';';
+    div.appendChild(li); 
+  }
 }
 let btnTask = document.querySelector('#btn-add');
+let input = document.querySelector('#task-input')
 btnTask.addEventListener('click', addTask);
+input.addEventListener('keyup', addTaskKeuUp);
 
 //          Exercício 8:
 //Implemente uma função que adiciona uma legenda com cor para a tarefa criada no exercício anterior. Esta função deverá receber como parâmetro uma string ("cor") e criar dinamicamente um elemento de tag <div> com a classe task.
@@ -200,5 +213,4 @@ ulDays.addEventListener('click', function(event) {
 //Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto "COMPROMISSOS", adiciona o item à lista "MEUS COMPROMISSOS" ao clicar no botão "ADICIONAR".
   //Se nenhum caractere for inserido no campo input , a função deve retornar um alert com uma mensagem de erro ao clicar em "ADICIONAR".
   //Ao pressionar a tecla "enter" o evento também deverá ser disparado.
-  //Dica - Propriedade: keyCode .
-
+  //OBS: Exercício bônus integrado ao exercício 7.

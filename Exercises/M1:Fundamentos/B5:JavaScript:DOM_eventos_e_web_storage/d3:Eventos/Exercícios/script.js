@@ -133,9 +133,9 @@ zoomOut();
 //Implemente uma função que adiciona uma tarefa personalizada ao calendário. A função deve receber como parâmetro a string com o nome da tarefa (ex: "cozinhar") e criar dinamicamente um elemento com a tag <span> contendo a tarefa.
   //O elemento criado deverá ser adicionado como filho da tag <div> que possui a classe "my-tasks".
   
-function addTask(task) {
+  function addTask(input) {
   let div = document.querySelector('.my-tasks');
-  let input = document.querySelector('#task-input');
+  input = document.querySelector('#task-input');
   
   if (input.value.length > 0) {
     let span = document.createElement('span');
@@ -146,17 +146,39 @@ function addTask(task) {
   
 }
 let btnTask = document.querySelector('#btn-add');
-btnTask.addEventListener('click', addTask)
+btnTask.addEventListener('click', addTask);
 
 //          Exercício 8:
-//Implemente uma função que adiciona uma legenda com cor para a tarefa criada no exercício anterior. Esta função deverá receber como parâmetro uma string ("cor") e criar dinamicamente um elemento de tag <div> com a classe task .
+//Implemente uma função que adiciona uma legenda com cor para a tarefa criada no exercício anterior. Esta função deverá receber como parâmetro uma string ("cor") e criar dinamicamente um elemento de tag <div> com a classe task.
   //O parâmetro cor deverá ser utilizado como cor de fundo da <div> criada.
   //O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks".
-
+function addTaskColor(cor) {
+  let input = document.querySelector('#task-input');
+  if (input.value.length > 0) {
+    cor = 'purple';
+    let div = document.createElement('div');
+    div.className = 'task';
+    div.style.backgroundColor = cor;
+    let divMain = document.querySelector('.my-tasks');
+    divMain.appendChild(div);
+  }
+}
+btnTask.addEventListener('click', addTaskColor)
 
 //          Exercício 9:
-//Implemente uma função que adiciona um evento que, ao clicar no elemento com a tag <div> referente a cor da sua tarefa, atribua a este elemento a classe task selected , ou seja, quando sua tarefa possuir a classe task selected , ela estará selecionada.
-  //Ao clicar novamente no elemento, a sua classe deverá voltar a ser somente task , ou seja, esta tarefa está deixando de ser uma tarefa selecionada.
+//Implemente uma função que adiciona um evento que, ao clicar no elemento com a tag <div> referente a cor da sua tarefa, atribua a este elemento a classe task selected, ou seja, quando sua tarefa possuir a classe task selected, ela estará selecionada.
+  //Ao clicar novamente no elemento, a sua classe deverá voltar a ser somente task, ou seja, esta tarefa está deixando de ser uma tarefa selecionada.
+let myTasks = document.querySelector('.my-tasks');
+myTasks.addEventListener('click', function(event) {
+  let task = event.target;
+  if (task.classList.contains('task')) {
+    if (task.classList.contains('selected')) {
+      task.className = 'task';
+    } else {
+      task.className = 'task selected';
+    }
+  }
+})
 
 
 //          Exercício 10:

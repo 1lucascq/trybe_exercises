@@ -1,0 +1,10 @@
+body {
+  background-color: rgb(200,200,200);
+  color: rgb(13,13,13);
+}
+
+.darkMode {
+  background-color: rgb(70,5,13);
+  color: rgb(230,230,230);
+}
+

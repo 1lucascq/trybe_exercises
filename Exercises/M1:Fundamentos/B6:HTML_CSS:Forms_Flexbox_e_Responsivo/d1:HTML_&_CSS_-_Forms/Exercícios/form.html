@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,52 +8,52 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <fieldset id="dadosPessoais">
-    <label for="nome"> Nome: <br>
-      <input class="inputs" type="text" id="nome" maxlength="40" required>
-    </label> <br>
-    <label for="email"> E-mail: <br>
-      <input class="inputs" type="text" id="email" maxlength="50" required>
-    </label> <br>
-    <label for="cpf"> CPF: <br>
-      <input class="inputs" type="text" id="cpf" maxlength="11" required>
-    </label> <br>
-    <label for="estado"> Estado: <br>
-      <select name="state" id="estado">
-        <option value="mg">Minas Gerais</option>
-        <option value="sp">São Paulo</option>
-        <option value="ac">Acre</option>
-        <option value="rj">Rio de Janeiro</option>
-      </select>
-    </label> <br>
-    <label for="cidade"> Cidade: <br>
-      <input class="inputs" type="text" id="cidade" maxlength="28" required>
-    </label> <br>
-    <label for="endereco"> Endereço: <br>
-      <input class="inputs" type="text" id="endereco" maxlength="200" required>
-    </label> <br>
-    <label for="casa"> Tipo: <br>
-      <input class="inputs" type="radio" id="casa" name="tipo" required> Casa
-    </label> <br>
-      <label for="apt">
-      <input class="inputs" type="radio" id="apt" name="tipo" required> Apartamento
-    </label>
-  </fieldset>
-  <fieldset>
-    <label for="resume"> Resumo de Currículo: <br>
-      <textarea name="resume" id="curriculo" rows="10" required></textarea>
-    </label> <br>
-    <label for="cargo"> Cargo: <br>
-      <input type="text" id="cargo" maxlength="40" required>      
-    </label> <br>
-    <label for="descricao"> Descrição: <br>
-      <textarea name="descricao" id="descricaoCargo" rows="4"></textarea>
-    </label> <br>
-    <label for="dataInicio"> Data de Início: <br>
-      <input type="text" id="dataInicio" required>      
-    </label> <br>
-  </fieldset>
-  <button id="preventDefaultBtn"></button>
+  <form>
+    <fieldset id="dadosPessoais">
+      <label for="nome"> Nome: <br>
+        <input class="inputs" type="text" name="nome" id="nome" maxlength="50" required>
+      </label> <br>
+      <label for="email"> E-mail: <br>
+        <input class="inputs" type="text" name="email" id="email" maxlength="50" required>
+      </label> <br>
+      <label for="cpf"> CPF: <br>
+        <input class="inputs" type="text" name="cpf" id="cpf" maxlength="11" required>
+      </label> <br>
+      <label for="estado"> Estado: <br>
+        <select name="estado" id="estado">
+        </select>
+      </label> <br>
+      <label for="cidade"> Cidade: <br>
+        <input class="inputs" type="text" name="cidade" id="cidade" maxlength="28" required>
+      </label> <br>
+      <label for="endereco"> Endereço: <br>
+        <input class="inputs" type="text" name="endereco" id="endereco" maxlength="200" required>
+      </label> <br>
+      <label for="casa"> Tipo de Residência: <br>
+        <input class="inputs" type="radio" id="casa" name="residencia" required> Casa
+      </label> <br>
+        <label for="apt">
+        <input class="inputs" type="radio" id="apt" name="residencia" required> Apartamento
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <label for="curriculo"> Resumo de Currículo: <br>
+        <textarea name="curriculo" id="curriculo" rows="7" required></textarea>
+      </label> <br>
+      <label for="cargo"> Cargo: <br>
+        <input type="text" name="cargo" id="cargo" maxlength="40" required>      
+      </label> <br>
+      <label for="descricao"> Descrição do Cargo: <br>
+        <textarea name="descricao" id="descricao" rows="4"></textarea>
+      </label> <br>
+      <label for="dataInicio"> Data de Início: <br>
+        <input type="text" name="dataInicio" id="dataInicio" required>      
+      </label> <br>
+    </fieldset>
+    
+    <button type="submit" id="submitBtn">Enviar</button>
+  </form>
+  <script src="scripts.js"></script>
 </body>
-<script src="scripts.js"></script>
 </html>

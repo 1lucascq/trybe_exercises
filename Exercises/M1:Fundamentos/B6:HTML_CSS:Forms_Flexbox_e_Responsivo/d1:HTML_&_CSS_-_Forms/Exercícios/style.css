@@ -11,7 +11,8 @@ body {
 fieldset {
   background-color: rgb(191, 191, 191);
   width: 900px;
-  margin: 20px auto;
+  margin: 0px auto;
+  margin-bottom: 10px;
   border-color: rgb(221, 221, 221);
 }
 
@@ -21,4 +22,29 @@ fieldset input[type="text"] {
 
 fieldset textarea {
   width: 900px;
+}
+
+button {
+  padding: 3px 7px;
+  margin: 0px auto;
+  margin-bottom: 10px;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid gray;
+}
+
+button:hover {
+  background-color: darkgray;
+  border-color: black;
+  color: black;
+  cursor: pointer;
+}
+
+select {
+  width: 42px;
+}
+
+#dataInicio {
+  width: 95px;
+  text-align: center;
 }

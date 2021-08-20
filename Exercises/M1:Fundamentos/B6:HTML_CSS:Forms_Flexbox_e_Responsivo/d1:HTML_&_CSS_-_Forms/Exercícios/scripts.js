@@ -8,6 +8,7 @@ const curriculo = document.querySelector('[name=curriculo]');
 const cargo = document.querySelector('[name=cargo]');
 const descricao = document.querySelector('[name=descricao]');
 const residencia = document.querySelector('[name=residencia]'); 
+const submitBtn = document.getElementById('submitBtn');
 
 function criarEstados() {
   const addEstados = ['AC','MG','AL','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
@@ -125,7 +126,6 @@ function validarData () {
 window.onload = () => {
   criarEstados()
   
-  const submitBtn = document.getElementById('submitBtn');
   submitBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -148,6 +148,64 @@ window.onload = () => {
     validarResidencia();
 
     validarEndereco();
+    
   })
-
-}
+};
+const previewBtn = document.getElementById('preview');
+previewBtn.addEventListener('click', () => {
+  const data = document.getElementById('dataInicio').value;
+  const dia = parseInt(data.substring(0,2)) || '';
+  const mes = parseInt(data.substring(3,5)) || '';
+  const ano = parseInt(data.substring(6,10)) || '';
+  if (cargo.value.length > 40) {
+    alert('Campo CARGO muito longo!')
+  } else if (cargo.value === null || cargo.value === undefined || cargo.value.length === 0) {
+    alert('Confira o campo CARGO!')
+  }  else if (nome.value.length > 40) {
+    alert('Campo NOME muito longo!')
+  } else if (nome.value === null || nome.value === undefined || nome.value.length === 0) {
+    alert('Confira o campo NOME!')
+  } else if (email.value.length > 50) {
+    alert('Campo EMAIL muito longo!')
+  } else if (email.value === null || email.value === undefined || email.value.length === 0) {
+    alert('Confira o campo EMAIL!')
+  } else if (cpf.value.length > 11) {
+    alert('Campo CPF muito longo!')
+  } else if (cpf.value === null || cpf.value === undefined || cpf.value.length === 0) {
+    alert('Confira o campo CPF!')
+  } else if (endereco.value.length > 200) {
+    alert('Campo ENDEREÇO muito longo!')
+  } else if (endereco.value === null || endereco.value === undefined || endereco.value.length === 0) {
+    alert('Confira o campo ENDEREÇO!')
+  } else if (cidade.value.length > 28) {
+    alert('Campo CIDADE muito longo!')
+  } else if (cidade.value === null || cidade.value === undefined || cidade.value.length === 0) {
+    alert('Confira o campo CIDADE!')
+  } else if (curriculo.value.length > 1000) {
+    alert('Campo RESUMO DO CURRÍCULO muito longo!')
+  } else if (curriculo.value === null || curriculo.value === undefined || curriculo.value.length === 0) {
+    alert('Confira o campo RESUMO DO CURRÍCULO!')
+  } else if (descricao.value.length > 500) {
+    alert('Campo DESCRIÇÃO DO CARGO muito longo!')
+  } else if (descricao.value === null || descricao.value === undefined || descricao.value.length === 0) {
+    alert('Confira o campo DESCRIÇÃO DO CARGO!')
+  } else if (data.length !== 10) {
+    alert('Data incompleta!')
+  } else if (typeof(dia) !== 'number' || typeof(mes) !== 'number' || typeof(ano) !== 'number') {
+    alert('O formato da data deve ser numérico')
+  } else if (!(dia > 0 || dia <= 31)) {
+    alert('Confira o dia do início do trabalho!');
+  } else if (mes < 0 || mes > 12) {
+    alert('Confira o mes do início do trabalho!');
+  } else if (ano < 0) {
+    alert('Confira o ano do início do trabalho!');
+ } else {
+      const resultado = document.querySelector('#resultado');
+      const inputs = document.getElementsByClassName('inputs');
+      for (let i = 0; i < inputs.length; i += 1) {
+        let p = document.createElement('p');
+        p.innerText = inputs[i].name + ': ' + inputs[i].value
+        resultado.appendChild(p);
+  }
+  }
+})

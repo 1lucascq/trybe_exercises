@@ -100,6 +100,10 @@ function validarResidencia() {
   }
 }
 
+const dateField = document.querySelector('#datepicker');
+const picker = new Pikaday({
+  field: dateField
+});
 
 
 window.onload = () => {
@@ -169,6 +173,6 @@ previewBtn.addEventListener('click', () => {
         let p = document.createElement('p');
         p.innerText = inputs[i].name + ': ' + inputs[i].value
         resultado.appendChild(p);
-  }
+      }
   }
 })

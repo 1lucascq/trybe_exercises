@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/pikaday/css/pikaday.css">
+
+
+<body class="bg-secondary">
+  <form class="text-light bg-dark container-md text-start" id="form">
+
+      <div class="mb-3">
+        <label class="form-label" for="nome"> Nome:
+        </label class="form-label">
+        <input class="inputs form-control" type="text" name="nome" id="nome" maxlength="50" required>
+      </div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label" for="email"> E-mail:
+        </label class="form-label">
+        <input class="inputs form-control" type="text" name="email" id="email" maxlength="50" required>
+      </div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label" for="cpf"> CPF:
+        </label class="form-label">
+        <input class="inputs form-control" type="text" name="cpf" id="cpf" maxlength="11" required>
+      </div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label" for="estado"> Estado:
+          <select class="inputs form-select" name="estado" id="estado">
+          </select>
+        </label class="form-label">
+      </div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label" for="cidade"> Cidade:
+        </label class="form-label">
+        <input class="inputs form-control" type="text" name="cidade" id="cidade" maxlength="28" required>
+      </div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label" for="endereco"> Endereço:
+        </label class="form-label">
+        <input class="inputs form-control" type="text" name="endereco" id="endereco" maxlength="200" required>
+      </div class="mb-3">
+      <div class="form-check">
+        <label class="form label"for="">Tipo de Residência:</label><br>
+        <label class="form-label form-check-label" for="casa">
+          <input class="input-residencia form-check-input" type="radio" id="casa" name="residencia" required> Casa
+        </label class="form-label">
+      </div class="mb-3">
+      <div class="mb-3 form-check">
+        <label class="form-label form-check-label" for="apt">
+        </label class="form-label">
+        <input class="input-residencia form-check-input" type="radio" id="apt" name="residencia" required> Apartamento
+      </div class="mb-3">  
+  
+
+      <div class="mb-3">
+        <label class="form-label" for="curriculo"> Resumo de Currículo:
+        </label class="form-label">
+        <textarea class="inputs form-control" name="curriculo" id="curriculo" rows="7" required></textarea>
+      </div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label" for="cargo"> Cargo:
+        </label class="form-label">
+        <input type="text" class="inputs form-control" name="cargo" id="cargo" maxlength="40" required>      
+      </div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label" for="descricao"> Descrição do Cargo:
+        </label class="form-label">
+        <textarea name="descricao" class="inputs form-control" id="descricao" rows="4"></textarea>
+      </div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label" for="datepicker"> Data de Início:
+          <input type="text" class="inputs form-control" id="datepicker" name="Data de Início" required>
+        </label class="form-label">
+      </div class="mb-3">
+  
+    <button class="btn btn-success" type="submit" id="submitBtn">Enviar</button>
+    <button class="btn btn-danger" class="limparBtn" type="reset">Limpar Tudo</button>
+    <button class="btn btn-warning" type="button" id="preview">Conferir Dados</button>
+    <section>
+      <div class="mb-3" id="resultado">
+      </div class="mb-3">
+    </section>
+  </form>
+
+  <script src="./node_modules/pikaday/pikaday.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="scripts.js"></script>
+</script>
+</body>
+</html>

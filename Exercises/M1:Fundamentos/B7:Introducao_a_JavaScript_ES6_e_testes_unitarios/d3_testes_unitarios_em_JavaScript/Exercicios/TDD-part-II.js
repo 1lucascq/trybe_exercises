@@ -1,5 +1,5 @@
-//          ESCREVENDO CÓDIGOS
 const assert = require('assert');
+//          ESCREVENDO CÓDIGOS
 // 1. Escreva a função addOne para passar nos testes já implementados.
 function addOne(ar) {
   let newAr = [];
@@ -67,94 +67,17 @@ function findTheNeedle(ar, word) {
   return result;
 }
 
-let wordsThree = ['house', 'train', 'slide', 'needle', 'book'];
-let expectedThree = 3;
-let outputThree = findTheNeedle(wordsThree, 'needle');
-assert.strictEqual(outputThree, expectedThree);
+let wordsFour = ['house', 'train', 'slide', 'needle', 'book'];
+let expectedFour = 3;
+let outputFour = findTheNeedle(wordsFour, 'needle');
+assert.strictEqual(outputFour, expectedFour);
 
-wordsThree = ['plant', 'shelf', 'arrow', 'bird'];
-expectedThree = 0;
-outputThree = findTheNeedle(wordsThree, 'plant');
-assert.strictEqual(outputThree, expectedThree);
+wordsFour = ['plant', 'shelf', 'arrow', 'bird'];
+expectedFour = 0;
+outputFour = findTheNeedle(wordsFour, 'plant');
+assert.strictEqual(outputFour, expectedFour);
 
-wordsThree = ['plant', 'shelf', 'arrow', 'bird'];
-expectedThree = -1;
-outputThree = findTheNeedle(wordsThree, 'plat');
-assert.strictEqual(outputThree, expectedThree);
-
-
-
-
-
-
-//          REESCREVENDO E TESTANDO CÓDIGOS
-// 1. Use a variável parameter como parâmetro da função abaixo, escreva testes para verificar se a mesma está retornando como se vê na variável result e, caso não esteja, altere o código para que ele passe nos testes.
-const greetPeople = (people) => {
-  let greeting = 'Hello ';
-
-  for (const person in people) {
-    greeting += people[person];
-  }
-  return greeting;
-};
-
-const parameter = ['Irina', 'Ashleigh', 'Elsa'];
-const result = ['Hello Irina', 'Hello Ashleigh', 'Hello Elsa'];
-
-
-
-// 2. Use a variável parameter como parâmetro da função abaixo, escreva testes para verificar se a mesma está retornando como se vê na variável result e, caso não esteja, altere o código para que ele passe nos testes.
-const removeVowels = (word) => {
-  const characters = word.split('');
-  const results = [];
-
-  for (let index = 0; index < characters.length; index += 1) {
-    if (
-      characters[index] === 'a' ||
-      characters[index] === 'o' ||
-      characters[index] === 'i' ||
-      characters[index] === 'e' ||
-      characters[index] === 'u'
-    ) {
-      results.push(characters[index]);
-    } else {
-      results.push('_');
-    }
-  }
-  return results;
-};
-
-
-const parameter = 'Dayane';
-const result = 'D1y2n3';
-
-
-
-// 3. Use a variável parameter como parâmetro da função abaixo, escreva testes para verificar se a mesma está retornando como se vê na variável result e, caso não esteja, altere o código para que ele passe nos testes.
-const greaterThanTen = (array) => {
-  let results = 0;
-  for (let index = 0; index < array.length; index += 1) {
-    if (array[index] > 10) {
-      results += array[index];
-    }
-  }
-  return results;
-};
-
-const parameter = [4, 10, 32, 9, 21];
-const result = [32, 21];
-
-
-
-// 4. Use a variável parameter como parâmetro da função abaixo, escreva testes para verificar se a mesma está retornando como se vê na variável result e, caso não esteja, altere o código para que ele passe nos testes.
-function secondThirdSmallest(array) {
-  let results = []
-  array.sort(function (x, y) {
-      return x + y;
-  });
-  results = [array[1], array[2]];
-  return results;
-};
-
-const parameter = [4, 10, 32, 9, 21, 90, 5, 11, 8, 6];
-const result = [5, 6];
+wordsFour = ['plant', 'shelf', 'arrow', 'bird'];
+expectedFour = -1;
+outputFour = findTheNeedle(wordsFour, 'plat');
+assert.strictEqual(outputFour, expectedFour);

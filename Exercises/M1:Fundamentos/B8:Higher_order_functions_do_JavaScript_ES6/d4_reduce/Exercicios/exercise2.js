@@ -69,10 +69,11 @@ const books = [
 const expectedResult = "George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.";
 
 function reduceNames() {
-  const bookAuthors = books.reduce((acc, authors) => `${acc} ${authors.author.name}, `, '');
-  return bookAuthors.slice(1);
+  const bookAuthors = books.reduce((acc, authors, i, arr) => {
+    if (i === arr.length - 1) return `${acc} ${authors.author.name}.`
+    return `${acc} ${authors.author.name},`;
+  }, '');
+  return bookAuthors.slice(1);  
 }
-  console.log(reduceNames())
 
-
-  // assert.strictEqual(reduceNames(), expectedResult);
+assert.strictEqual(reduceNames(), expectedResult);

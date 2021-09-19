@@ -38,6 +38,3 @@ const fetchPromise = () => {
 };
 
 fetchPromise()
-
-
-

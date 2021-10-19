@@ -9,8 +9,6 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        {/* Switch* */}
-        <Switch>
           <Link to="/">Home</Link>
           <span> - </span>
           <Link to="/users/:Jao">Users</Link>
@@ -19,6 +17,7 @@ class App extends Component {
           <span> - </span>
           <Link to="/StrictAccess">Strict Access</Link>
           
+        <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route

@@ -9,7 +9,8 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        {/* <Switch> */}
+        {/* Switch* */}
+        <Switch>
           <Link to="/">Home</Link>
           <span> - </span>
           <Link to="/users/:Jao">Users</Link>
@@ -32,7 +33,7 @@ class App extends Component {
               <StrictAccess {...props} user={ {username:"joao", password:"1234"} } />
             )}
           />
-        {/* </Switch> */}
+        </Switch>
       </BrowserRouter>
     );
   }

@@ -44,5 +44,19 @@ const concatenateStrings = (stringA, stringB) => stringA.concat(stringB)
   // O segundo deve interpretar que a requisição falhou e ter como valor "request failed".
   // Crie todos os testes que achar necessário.
 
+function fetchDog() {
+  return fetch("https://dog.ceo/api/breeds/image/random")
+  .then(response => response.json()
+    .then(json => response.ok ? Promise.resolve(json) : Promise.reject(json)
+    )
+  );
+}
 
-module.exports = { randomNumber, talkLOUDER, returnFirstLetter, concatenateStrings }
+async function fetchDogg() {
+  const GET_PIC = await fetch('https://dog.ceo/api/breeds/image/random');
+  const data = await GET_PIC.json();
+  
+  console.log(data)
+  return data;
+}
+module.exports = { randomNumber, talkLOUDER, returnFirstLetter, concatenateStrings, fetchDog }

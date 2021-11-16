@@ -1,0 +1,2 @@
+Exercícios de fixação disponíveis em:
+https://github.com/1lucascq/exercises-redux-step-by-step

@@ -86,4 +86,4 @@ const mapStateToProps = (state) => ({
   professionalData: state.formReducer.dadosProfissionais,
 });
 
-connect(mapStateToProps, null)(FormDataDisplay);
+export default connect(mapStateToProps, null)(FormDataDisplay);

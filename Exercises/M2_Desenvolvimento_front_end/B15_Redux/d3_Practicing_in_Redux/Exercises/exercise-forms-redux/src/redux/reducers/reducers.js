@@ -17,6 +17,7 @@ const INITIAL_STATE = {
 };
 
 export default function formReducer(state = INITIAL_STATE, action) {
+  console.log(state, action);
   switch (action.type) {
   case CHANGE_PERSONAL_DATA:
     return { ...state, dadosPessoais: { ...action.payload } };

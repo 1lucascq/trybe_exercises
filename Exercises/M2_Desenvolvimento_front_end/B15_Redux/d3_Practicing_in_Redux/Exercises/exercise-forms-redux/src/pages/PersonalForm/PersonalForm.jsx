@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux';
-import Input from '../components/Input';
-import Button from '../components/Button';
-import Select from '../components/Select';
-import { changePersonalData } from '../redux/actions/actions';
+// import { connect } from 'react-redux';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import Select from '../../components/Select';
+// import { changePersonalData } from '../../redux/actions/actions';
 
 class PersonalForm extends Component {
   constructor() {
@@ -30,7 +30,7 @@ class PersonalForm extends Component {
 
   render() {
     const { nome, email, cpf, endereco, cidade, estado } = this.state;
-    const { changeData } = this.props;
+    const { changePersonalData } = this.props;
     const states = [
       'Rio de Janeiro',
       'Minas Gerais',
@@ -88,7 +88,9 @@ class PersonalForm extends Component {
         <Button
           type="button"
           label="Enviar"
-          onClick={ () => changeData(this.state) }
+          onClick={ () => {
+            changePersonalData(this.state);
+          } }
         />
       </fieldset>
     );
@@ -96,11 +98,13 @@ class PersonalForm extends Component {
 }
 
 PersonalForm.propTypes = {
-  changeData: PropTypes.func.isRequired,
+  changePersonalData: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  changeData: (payload) => dispatch(changePersonalData(payload)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   changeData: (payload) => dispatch(changePersonalData(payload)),
+// });
 
-export default connect(null, mapDispatchToProps)(PersonalForm);
+// const mapDispatchToProps = { change: changePersonalData };
+
+export default PersonalForm;

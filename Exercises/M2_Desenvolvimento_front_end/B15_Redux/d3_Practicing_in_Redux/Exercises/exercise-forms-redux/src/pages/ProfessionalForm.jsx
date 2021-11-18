@@ -65,8 +65,10 @@ ProfessionalForm.propTypes = {
   changeData: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  changeData: (payload) => dispatch(changeProfessionalData(payload)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   changeData: (payload) => dispatch(changeProfessionalData(payload)),
+// });
+
+const mapDispatchToProps = { changeData: changeProfessionalData };
 
 export default connect(null, mapDispatchToProps)(ProfessionalForm);

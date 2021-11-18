@@ -1,0 +1,4 @@
+1. https://github.com/1lucascq/exercise-redux-thunk
+2. https://github.com/1lucascq/exercise-game-of-thrones-characters
+
+

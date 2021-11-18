@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
 import Button from '../components/Button';
-// import { changeProfessionalData } from '../redux/actions/actions';
+import { changeProfessionalData } from '../redux/actions/actions';
 
 class ProfessionalForm extends Component {
   constructor() {
@@ -25,7 +25,7 @@ class ProfessionalForm extends Component {
 
   render() {
     const { curriculo, cargo, descricao } = this.state;
-    const { dispatch, changeData } = this.props;
+    const { changeData } = this.props;
     return (
       <fieldset>
         <TextArea
@@ -54,7 +54,7 @@ class ProfessionalForm extends Component {
         />
         <Button
           label="enviar"
-          onClick={ () => dispatch(changeData(this.state)) }
+          onClick={ () => changeData(this.state) }
         />
       </fieldset>
     );
@@ -63,12 +63,12 @@ class ProfessionalForm extends Component {
 
 ProfessionalForm.propTypes = {
   changeData: PropTypes.func.isRequired,
-  dispatch: PropTypes.func.isRequired,
 };
 
 // const mapDispatchToProps = (dispatch) => ({
 //   changeData: (payload) => dispatch(changeProfessionalData(payload)),
 // });
 
-// export default connect()(ProfessionalForm);
-export default ProfessionalForm;
+const mapDispatchToProps = { changeData: changeProfessionalData };
+
+export default connect(null, mapDispatchToProps)(ProfessionalForm);

@@ -1,0 +1,84 @@
+
+					SELETORES
+div.red 		--> DIVs com a classe red
+
+div.red.green		--> DIVs com a classe red E a classe green
+
+div, li		--> TODAS as DIVs e LI
+
+div, li.green		--> TODAS as DIVs e LI com a classe green
+
+ul li			--> TODAS as LI dentro de uma UL
+
+div .red		--> TODOS os elementos que tiverem a classe .red dentro de uma UL
+
+ul > li		--> TODAS as LI que são filhos diretos (direct child) de uma UL
+
+div > .red		--> TODAS os elementos com a classe .red que são filhos diretos (direct child) de 
+uma DIV
+
+li.red ~ li		--> TODAS as LI irmãs (simblings) que vem após uma LI com a classe .red (a li.red 
+não recebe os estilos)
+
+li.red + li		--> A LI irmã (simbling) que vem após uma LI com a classe .red (a li.red não 
+recebe os estilos)
+
+li.red:first-child	--> Somente a primeira LI que seja filha E tenha a classe .red, se não tiver, não 
+é selecionada
+
+[data-red]		--> Se refere a elementos com o atributo data-red (ex.: <div data-red />)
+
+[data-red='true']	--> Se refere a elementos com o atributo data-red='true' (ex.: <div data-
+red='true' />)
+
+[data-red^='tr']	--> ^ Se refere ao inicio do valor do atributo ser igual (ex.: <div data-
+red='true' />) --> true começa com tr
+
+[data-red$='ue']	--> $ Se refere ao fim do valor do atributo ser igual (ex.: <div data-red='true' /
+>) --> true termina com ue
+
+[data-red*='ru']	--> * Se refere ao qualquer lugar no valor do atributo ser igual (ex.: <div data-
+red='true' />) --> true tem ru
+
+
+					BEFORE/AFTER
+	https://www.youtube.com/watch?v=OtBpgtqrjyo&ab_channel=WebDevSimplified
+element::before/after	--> Precisa do content: '' --> Não pode ser self closing tags --> Só pode 1 before and after
+obs: <button data-tooltip="formulário">Enviar</button>
+[data-tooltip]:hover::after {
+	content: attr(data-tooltip)
+} --> isso mostrará o valor do atributo data-tooltip quando o mouse estiver encima após o Enviar do button (o attr é uma func)
+
+
+
+					ESSES COISO QUE VEM DEPOIS DO : -->VER O NOME DEPOIS
+:hover 		--> Mouse encima
+
+:focus			--> Quando o cursor tá encima
+
+:required		--> Só inputs com required
+
+:disabled		--> Só inputs com disabled
+
+:checked		--> Só inputs com checked
+
+:first-child		--> Primeiro filho
+
+:last-child		--> Último filho
+
+:only-child		--> Só se for fi único
+
+:nth-child(Xn*)	--> filho X --> *Pode ser uma fórmula (2n -1)
+
+:nth-last-child(Xn*)	--> filho X, só que começando de baixo--> *Pode ser uma fórmula (2n -1)
+
+:first-of-type		--> Primeiro elemento do tipo definido (ex.: span)
+
+:last-of-type		--> Último elemento do tipo definido (ex.: span)
+
+:nth-of-type(X)	--> Filho X --> *Pode ter o nth-last-of-type(X) tbm
+
+:only-of-type		--> Só se for fi único do tipo
+
+:not(.red)		--> Seleciona todos os elemento que NÃO tem o que for definido (ex.: .red)
+

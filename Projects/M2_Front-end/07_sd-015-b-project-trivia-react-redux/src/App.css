@@ -1,0 +1,164 @@
+.App {
+  text-align: left;
+}
+
+.App-logo {
+  height: 20vmin;
+  pointer-events: none;
+}
+
+.red-border {
+  border: 1px solid red;
+}
+
+.green-border {
+  border: 1px solid green;
+}
+
+.form-login {
+  background: #282c35;
+  border: 1px solid gray;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 2rem;
+  width: 30rem;
+}
+
+.bnt-login {
+  font-size: 1.2rem;
+  font-weight: 700;
+  height: 3rem;
+  margin: auto;
+  width: 11rem;
+}
+
+.form-position-buttons {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.feedback-position-buttons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-left: 180px;
+  padding-right: 180px;
+}
+
+
+.input-login {
+  width: 26rem;
+}
+
+@media ( prefers-reduced-motion : no-preference ) {
+
+  .App-logo {
+    animation: shake infinite 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+}
+
+.App-header {
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.bg-fundo {
+  background: #282C35;
+  color: #ffffff;
+}
+
+@keyframes shake {
+
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.feedback-card {
+  margin: 10rem;
+  padding: 2rem 0;
+  width: 50rem;
+}
+
+.feedback-image {
+  display: flex;
+  margin: auto;
+  width: 30%;
+}
+
+.rank-div {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.rank-ul {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 2rem;
+  width: 35rem;
+}
+
+.btn-go-home {
+  align-items: center;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 700;
+  height: 3rem;
+  justify-content: center;
+  margin: auto;
+  width: 11rem;
+}
+
+.config {
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* h1 > config {
+  padding: 2rem;
+}
+ */
+
+.play-again-btn {
+  font-size: 1.1rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }

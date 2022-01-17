@@ -1,0 +1,1 @@
+Exercícios sobre os comandos do Docker feitos integralmente pelo terminal e podem ser conferidos no material do dia 19/1.

@@ -67,4 +67,4 @@ SELECT last_name, hire_date FROM hr.employees
 WHERE concat(year(hire_date), '-0', month(hire_date)) = '1987-07';
 
 -- 18: Escreva uma query que exiba as seguintes informações de cada funcionário: nome , sobrenome , tempo que trabalha na empresa (em dias) .
-SELECT first_name, last_name, DATEDIFF(curdate(), hire_date) AS HIRED_TIME FROM hr.employees;
+SELECT first_name, last_name, DATEDIFF(curdate(), hire_date) HIRED_TIME FROM hr.employees;

@@ -1,1 +1,0 @@
-Exercícios feitos integralmente no MySQL Workbench

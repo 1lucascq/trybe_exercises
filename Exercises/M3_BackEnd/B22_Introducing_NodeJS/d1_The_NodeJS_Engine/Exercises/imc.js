@@ -25,4 +25,4 @@ function calcIMC(height, weight) {
 }
 calcIMC(h, w);
 
-// module.exports = calcIMC;
+module.exports = calcIMC;

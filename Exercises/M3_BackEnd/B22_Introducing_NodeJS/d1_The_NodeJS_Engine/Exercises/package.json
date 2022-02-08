@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "imc": "node imc.js",
-    "carSpeed": "node carSpeed.js",
-    "prizeDraw": "node prizeDraw.js",
-    "start": "node index.js"
+    "imc": "node imc",
+    "carSpeed": "node carSpeed",
+    "prizeDraw": "node prizeDraw",
+    "fatorial": "node fatorial",
+    "start": "node index"
+
   },
   "keywords": [],
   "author": "",

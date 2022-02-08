@@ -1,5 +1,19 @@
-// function calcIMC(heigh, weight) {
-//   return (heigh/weight) * 2
-// }
+const readline = require('readline-sync');
 
-// module.exports = calcIMC;
+
+const scripts = [
+  { name: 'Car speed calculator', script: './carSpeed' },
+  { name: 'IMC calculator', script: './imc' },
+  { name: 'Prize draw', script: './prizeDraw' },
+]
+console.log(scripts[0]);
+
+function startQuestion() {
+  const options = [scripts[0].name, scripts[1].name, scripts[2].name];
+  const answer = readline.keyInSelect(options, 'Which program do u want to see?');
+  console.log(answer);
+  require(scripts[answer].script);
+
+}
+
+startQuestion();

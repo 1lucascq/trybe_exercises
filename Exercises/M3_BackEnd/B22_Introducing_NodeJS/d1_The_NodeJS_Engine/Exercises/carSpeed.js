@@ -8,3 +8,5 @@ const d = readline.questionInt('How far the car is? (meters) ');
 const s = readline.questionInt('How many seconds did it take to get there? ');
 
 avgSpeed(d, s);
+
+module.exports = avgSpeed;

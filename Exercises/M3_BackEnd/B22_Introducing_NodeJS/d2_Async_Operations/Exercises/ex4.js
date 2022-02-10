@@ -3,8 +3,8 @@ const fs = require('fs').promises;
 const simpsons = fs.readFile('./simpsons.json', 'utf-8')
   .then((file) => JSON.parse(file));
 
-  /*
----> Questão 1 com .then e depois com async/await abaixo
+  
+// ---> Questão 1 com .then e depois com async/await abaixo
 
   .then((simpsons) => simpsons.map(({ id, name }) => console.log(`${id} - ${name}`))) 
 
@@ -17,9 +17,9 @@ async function printAllCharacters(file) {
   }
 };
 printAllCharacters(simpsons);
-*/
 
-/* 2:
+
+// 2:
 function getCharacterData(id) {
   return new Promise(async (resolve, reject) => {
     const simps = await simpsons;
@@ -32,9 +32,9 @@ function getCharacterData(id) {
 getCharacterData(2)
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
-*/
 
-/* 3:
+
+// 3:
 
 async function newSimps() {
   const simps = await simpsons;
@@ -43,9 +43,9 @@ async function newSimps() {
   await fs.writeFile('./newSimpsons.json', JSON.stringify(newSimpsons));
 }
 newSimps()
-*/
 
-/* 4:
+
+// 4:
 
 async function family() {
   const simps = await simpsons;
@@ -53,22 +53,22 @@ async function family() {
   await fs.writeFile('./simpsonsFamily.json', JSON.stringify(simpsonsFamily));
 }
 family()
-*/
 
-/* 5:
+
+// 5:
 async function addToFamily() {
   const simps = await simpsons;
   const simpsonsFamily = simps.filter(({ id }) => [1, 2, 3, 4, 8].includes(Number(id)));
   await fs.writeFile('./simpsonsFamily.json', JSON.stringify(simpsonsFamily));
 }
 addToFamily()
-*/
 
-// /* 6:
+
+// 6:
 async function changeFamily() {
   const simps = await simpsons;
   const simpsonsFamily = simps.filter(({ id }) => [1, 3, 4, 8].includes(Number(id)));
   await fs.writeFile('./simpsonsFamily.json', JSON.stringify(simpsonsFamily));
 }
 changeFamily()
-// */
+ 

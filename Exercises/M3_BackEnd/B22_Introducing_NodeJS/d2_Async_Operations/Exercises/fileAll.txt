@@ -1,1 +1,1 @@
-FinalmenteestouusandoPromise.all!!!
+Finalmente estu usando Promise.all!!!

@@ -1,1 +1,1 @@
-char.id === id
+console.log(33 % 3)

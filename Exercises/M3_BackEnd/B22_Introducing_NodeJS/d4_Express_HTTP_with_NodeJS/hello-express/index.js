@@ -19,10 +19,12 @@ function handleHelloWorldRequest(_req, res) {
 //                                  --> Structuring
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
-const cors = require('cors');
-app.use(cors());
-// usado para liberar o acesso a API para outras aplicações - liga front e back.
+// const cors = require('cors');
+// app.use(cors()); -->  usado para liberar o acesso a API para outras aplicações - liga front e back.
+
+app.use(bodyParser.json());
 
 function objSort( a, b ) {
   if ( a.name < b.name ){
@@ -34,16 +36,27 @@ function objSort( a, b ) {
   return 0;
 }
 
-
 const recipes = [
   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
   { id: 2, name: 'Ceaser Salad', price: 35.0, waitTime: 25 },
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
+  { id: 4, name: 'Macarrão ao alho', price: 30.0, waitTime: 23 },
 ].sort((a, b) => a.name < b.name ? -1 : 1);
 
 app.get('/recipes', function (req, res) {
   res.json(recipes);
 });
+
+app.get('/recipes/search', function (req, res) {
+  const { name, maxPrice } = req.query;
+  const filteredRecipes = recipes.filter((r) => r.name.includes(name) && r.price < maxPrice);
+  
+  res.status(200).json(filteredRecipes);
+})
+
+/*
+⚠️ Observação: Quando houver rotas com um mesmo radical e uma destas utilizar parâmetro de rota, as rotas mais específicas devem ser definidas sempre antes. Isso porque o Express ao resolver uma rota vai olhando rota por rota qual corresponde a URL que chegou. Se colocamos a rota /recipes/search depois da rota /recipes/:id , o Express vai entender que a palavra search como um id e vai chamar a callback da rota /recipes/:id . Tenha atenção a esse detalhe ao utilizar rotas similares na definição da sua API.
+*/
 
 app.get('/recipes/:id', function (req, res) {
   const { id } = req.params;
@@ -53,6 +66,37 @@ app.get('/recipes/:id', function (req, res) {
 
   res.status(200).json(recipe);
 });
+
+app.get('/validateToken', function (req, res) {
+  const token = req.headers.authorization;
+  if (token.length !== 16) return res.status(401).json({message: 'Invalid Token!'});
+
+  res.status(200).json({message: 'Valid Token!'})
+});
+
+app.post('/recipes', function (req, res) {
+  const { id, name, price } = req.body;
+  recipes.push({ id, name, price});
+  res.status(201).json({ message: 'Recipe created successfully!'});
+});
+
+// como fazer um fetch
+// fetch(`http://localhost:3001/recipes/`, {
+//   method: 'POST',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     id: 4,
+//     name: 'Macarrão com Frango',
+//     price: 30
+//   })
+// });
+
+
+//                                                  --> Drinks
+
 
 
 const drinks = [
@@ -68,16 +112,28 @@ app.get('/drinks', (_req, res) => {
   res.json(drinks);
 });
 
+app.get('/drinks/search', (req, res) =>  {
+  const {name, minPrice} = req.query;
+  const filteredResults = drinks.filter(d => d.name.includes(name) && d.price > minPrice)
+
+  res.status(200).json(filteredResults);
+})
+
 app.get('/drinks/:id', (req, res) => {
   const {id} = req.params;
   const drink = drinks.find(d => d.id === +id);
 
-  if(!drink) return res.status(404).json({ message: 'Drink not found' });
-
   res.status(200).json(drink);
 })
 
+app.post('/drinks', (req, res) => {
+  const { id, name, price } = req.body;
+  drinks.push({id, name, price});
+  res.status(201).json({ message: 'Drink created successfully!'})
+});
 
+
+//          --> Adiciona o listener p/ a porta 3001
 app.listen(3001, () => {
   console.log('Aplicação ouvindo na porta 3001');
 });

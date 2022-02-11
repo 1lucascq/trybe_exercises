@@ -40,15 +40,20 @@ const recipes = [
   { id: 2, name: 'Ceaser Salad', price: 35.0, waitTime: 25 },
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
 ].sort((a, b) => a.name < b.name ? -1 : 1);
-// recipes.map()
 
 app.get('/recipes', function (req, res) {
   res.json(recipes);
 });
 
-app.listen(3001, () => {
-  console.log('Aplicação ouvindo na porta 3001');
+app.get('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const recipe = recipes.find((r) => r.id === Number(id));
+
+  if (!recipe) return res.status(404).json({ message: 'Recipe not found!'});
+
+  res.status(200).json(recipe);
 });
+
 
 const drinks = [
   { id: 1, name: 'Refrigerante Lata', price: 5.0 },
@@ -61,4 +66,18 @@ const drinks = [
 
 app.get('/drinks', (_req, res) => {
   res.json(drinks);
+});
+
+app.get('/drinks/:id', (req, res) => {
+  const {id} = req.params;
+  const drink = drinks.find(d => d.id === +id);
+
+  if(!drink) return res.status(404).json({ message: 'Drink not found' });
+
+  res.status(200).json(drink);
+})
+
+
+app.listen(3001, () => {
+  console.log('Aplicação ouvindo na porta 3001');
 });

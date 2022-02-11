@@ -6,7 +6,7 @@ const simpsons = fs.readFile('./simpsons.json', 'utf-8')
   
 // ---> Questão 1 com .then e depois com async/await abaixo
 
-  .then((simpsons) => simpsons.map(({ id, name }) => console.log(`${id} - ${name}`))) 
+  // .then((simpsons) => simpsons.map(({ id, name }) => console.log(`${id} - ${name}`))) 
 
 async function printAllCharacters(file) {
   try {

@@ -75,8 +75,8 @@ app.get('/validateToken', function (req, res) {
 });
 
 app.post('/recipes', function (req, res) {
-  const { id, name, price } = req.body;
-  recipes.push({ id, name, price});
+  const { id, name, price, waitTime } = req.body;
+  recipes.push({ id, name, price, waitTime});
   res.status(201).json({ message: 'Recipe created successfully!'});
 });
 

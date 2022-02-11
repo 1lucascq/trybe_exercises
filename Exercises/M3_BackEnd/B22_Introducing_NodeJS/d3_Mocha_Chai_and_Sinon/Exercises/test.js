@@ -1,22 +1,12 @@
-const fs = require('fs');
-const sinon = require('sinon');
 const { expect } = require('chai');
-const checkNumbers = require('./ex1');
+const checkNumbers = require('./ex1-3');
+const sinon = require('sinon');
+const fs = require('fs');
 
-const FILE_CONTENT =  'testing 1, 2, 3';
-
-
-describe('Check if a number is positive, neutral or negative', () => {
+describe('1..3: Check if a number is positive, neutral or negative', () => {
   describe('The function is called with a number as param', () => {
   
     it('Check if the number is positive', () => {
-      // before(() => {
-      //   sinon.stub(fs, 'readFileSync').returns(FILE_CONTENT);
-      // });
-
-      // after(() => {
-      //   fs.readFileSync.restore()
-      // });
       const answer = checkNumbers(7)
       expect(answer).to.be.a('string');
       expect(answer).to.be.equals('positive');
@@ -43,20 +33,25 @@ describe('Check if a number is positive, neutral or negative', () => {
 
     });
   });
-
-  // describe('When the file doesn\'t exists:', () => {
-  
-  //   before(() => {
-  //     sinon.stub(fs, 'readFileSync').throws(null);
-  //   })
-    
-  //   after(() => fs.readFileSync.restore())
-    
-  //   describe('the return', () => {
-  //     const answer = readFiles('fileThatDontExist.txt');
-  //     it('is equal to "null"', () => {
-  //       expect(answer).equals(null)
-  //     });
-  //   });
-  // });
 });
+
+// -----------------------------------------------------------------------------------------------------
+
+const FILE_CONTENT =  'exercises 4 and 5';
+const writeNewFile = require('./ex4-5');
+describe('4..5: Check if the function writes a specified content in a file', () => {
+  before(() => {
+    sinon.stub(fs, 'writeFileSync').returns('');
+  });
+  after(() => {
+    fs.writeFileSync.restore()
+  });
+
+  it('Returns a "Ok" after write a file', () => {
+    const answer = writeNewFile('testFile.txt', FILE_CONTENT)
+    
+    expect(answer).to.be.a('string');
+    expect(answer).to.be.equals('Ok!');
+
+  });
+})

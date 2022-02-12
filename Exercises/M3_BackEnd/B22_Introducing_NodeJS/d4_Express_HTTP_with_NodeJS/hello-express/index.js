@@ -204,6 +204,10 @@ app.delete('/drinks/:id', (req, res) => {
 
 
 //          --> Adiciona o listener p/ a porta 3001
+app.all('*', function (req, res) {
+  return res.status(404).json({ message: `Rota '${req.path}' não existe!`});
+});
+
 app.listen(3001, () => {
   console.log('Aplicação ouvindo na porta 3001');
 });

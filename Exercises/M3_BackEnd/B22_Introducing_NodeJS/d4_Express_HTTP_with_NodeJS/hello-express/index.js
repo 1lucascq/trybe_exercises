@@ -38,7 +38,7 @@ function objSort( a, b ) {
 
 const recipes = [
   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
-  { id: 2, name: 'Ceaser Salad', price: 35.0, waitTime: 25 },
+  { id: 2, name: 'Caeser Salad', price: 35.0, waitTime: 25 },
   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
   { id: 4, name: 'Macarrão ao alho', price: 30.0, waitTime: 23 },
 ].sort((a, b) => a.name < b.name ? -1 : 1);
@@ -67,6 +67,29 @@ app.get('/recipes/:id', function (req, res) {
   res.status(200).json(recipe);
 });
 
+app.put('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const { name, price } = req.body;
+  const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id));
+
+  if (recipeIndex === -1) return res.status(404).json({ message: 'Recipe not found!' });
+
+  recipes[recipeIndex] = { ...recipes[recipeIndex], name, price };
+
+  res.status(204).end();
+});
+
+app.delete('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id));
+
+  if (recipeIndex === -1) return res.status(404).json({ message: 'Recipe not found!' });
+
+  recipes.splice(recipeIndex, 1);
+
+  res.status(204).end();
+});
+
 app.get('/validateToken', function (req, res) {
   const token = req.headers.authorization;
   if (token.length !== 16) return res.status(401).json({message: 'Invalid Token!'});
@@ -80,20 +103,43 @@ app.post('/recipes', function (req, res) {
   res.status(201).json({ message: 'Recipe created successfully!'});
 });
 
-// como fazer um fetch
-// fetch(`http://localhost:3001/recipes/`, {
-//   method: 'POST',
-//   headers: {
-//     Accept: 'application/json',
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     id: 4,
-//     name: 'Macarrão com Frango',
-//     price: 30
-//   })
-// });
+/*
+//          --> como seria fazer um fetch
+fetch(`http://localhost:3001/recipes/`, {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    id: 4,
+    name: 'Macarrão com Frango',
+    price: 30
+  })
+});
 
+//          --> Requisição do tipo PUT
+fetch(`http://localhost:3001/recipes/2`, {
+  method: 'PUT',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'Macarrão ao alho e óleo',
+    price: 40
+  })
+});
+
+//          --> Requisição do tipo DELETE
+fetch(`http://localhost:3001/recipes/4`, {
+  method: 'DELETE',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  }
+});
+*/
 
 //                                                  --> Drinks
 
@@ -131,6 +177,30 @@ app.post('/drinks', (req, res) => {
   drinks.push({id, name, price});
   res.status(201).json({ message: 'Drink created successfully!'})
 });
+
+app.put('/drinks/:id', (req, res) => {
+  const { id } = req.params;
+  const { name, price } = req.body;
+  const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id));
+
+  if (recipeIndex === -1) return res.status(404).json({ message: 'Recipe not found!' });
+
+  recipes[recipeIndex] = { ...recipes[recipeIndex], name, price };
+
+  return res.status(204).end();
+});
+
+app.delete('/drinks/:id', (req, res) => {
+  const { id } = req.params;
+  const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id));
+
+  if (recipeIndex === -1) return res.status(404).json({ message: 'Recipe not found!' });
+
+  recipes.splice(recipeIndex, 1);
+
+  return res.status(204).end();
+});
+
 
 
 //          --> Adiciona o listener p/ a porta 3001

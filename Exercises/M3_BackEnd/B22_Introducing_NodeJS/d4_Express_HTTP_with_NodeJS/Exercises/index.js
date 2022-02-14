@@ -80,3 +80,9 @@ app.all('*', function (req, res) {
 app.listen(3001, () => {
   console.log('Aplicação ouvindo na porta 3001');
 });
+
+//          --> Function que gera bytes aleatórios
+// const crypto = require('crypto');
+// function generateToken() {
+//   return crypto.randomBytes(1).toString('hex');
+// }

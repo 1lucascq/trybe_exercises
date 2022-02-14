@@ -2,8 +2,9 @@ const fs = require('fs/promises');
 const express = require('express');
 const app = express();
 const authMiddleware = require('./authMiddleware');
-const bodyParser = require('body-parser');
 const rescue = require('express-rescue');
+const crypto = require('crypto');
+// const bodyParser = require('body-parser');
 
 // app.use(bodyParser.json());
 app.use(express.json());
@@ -71,6 +72,18 @@ app.post('/simpsons', rescue(async (req, res) => {
   setSimpsons(newSimpsons)
   return res.status(204).end();
 }));
+
+app.post('/signup', (req, res) => {
+  const { email, password, firstName, phone } = req.body;
+
+  if ([email, password, firstName, phone].includes(undefined)) {
+    return res.status(401).json({ message: 'missing fields' });
+  }
+
+  const token = crypto.randomBytes(8).toString('hex');
+
+  res.status(200).json({ token });
+})
 
 //          --> Listener
 

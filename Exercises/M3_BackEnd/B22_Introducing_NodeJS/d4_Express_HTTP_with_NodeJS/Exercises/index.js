@@ -1,10 +1,13 @@
 const fs = require('fs/promises');
 const express = require('express');
 const app = express();
+const authMiddleware = require('./authMiddleware');
 const bodyParser = require('body-parser');
 const rescue = require('express-rescue');
-app.use(bodyParser.json());
-// app.use(express.json());
+
+// app.use(bodyParser.json());
+app.use(express.json());
+app.use(authMiddleware);
 
 //          --> fs-utils functions
 
@@ -72,6 +75,9 @@ app.post('/simpsons', rescue(async (req, res) => {
 //          --> Listener
 
 
+app.use((err, _req, res, _next) => {
+  res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`);
+});
 
 app.all('*', function (req, res) {
   return res.status(404).json({ message: `Rota '${req.path}' não existe!`});

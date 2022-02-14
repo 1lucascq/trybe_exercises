@@ -66,7 +66,7 @@ app.post('/simpsons', rescue(async (req, res) => {
   const newSimpsons = [ ...simpsons, newSimpson ];
   
   setSimpsons(newSimpsons)
-  return res.status(200).json(newSimpsons);
+  return res.status(204).end();
 }));
 
 //          --> Listener

@@ -4,9 +4,22 @@ function validateEmail(mail) {
   return (false)
 }
 
-function validateData(user, email, pass) {
+function validateRegister(user, email, pass) {
   if(user.length < 4 || validateEmail(email) !== true || (pass <= 4 && pass > 8)) return false;
   return true
 }
 
-module.exports = validateData;
+function validateLogin(email, pass) {
+  if(validateEmail(email) !== true || (pass <= 4 && pass > 8)) return false;
+  return true
+}
+
+//          --> Function que gera bytes aleatórios
+const crypto = require('crypto');
+function generateToken(n) {
+  return crypto.randomBytes(n).toString('hex');
+}
+
+
+module.exports = { validateRegister, validateLogin, generateToken };
+

@@ -4,14 +4,27 @@ function validateEmail(mail) {
   return (false)
 }
 
-function validateRegister(user, email, pass) {
-  if(user.length < 4 || validateEmail(email) !== true || (pass <= 4 && pass > 8)) return false;
-  return true
+function validateRegister(req, res, next) {
+  const { username, password, email } = req.body;
+  if(
+    !username || username.length < 4 ||
+    !email || validateEmail(email) !== true ||
+    !password || (password <= 4 && password > 8)
+    ) {
+    return res.status(400).json({ message: 'Invalid data!' });
+  }
+  next();
 }
 
-function validateLogin(email, pass) {
-  if(validateEmail(email) !== true || (pass <= 4 && pass > 8)) return false;
-  return true
+function validateLogin(req, res, next) {
+  const { password, email } = req.body;
+  if(
+    !email || validateEmail(email) !== true ||
+    !password || (password <= 4 && password > 8)
+    ) {
+    return res.status(400).json({ message: 'Invalid data!' });
+  }
+  next();
 }
 
 //          --> Function que gera bytes aleatórios

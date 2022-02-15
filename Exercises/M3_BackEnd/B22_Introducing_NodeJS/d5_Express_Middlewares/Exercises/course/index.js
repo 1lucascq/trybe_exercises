@@ -8,24 +8,9 @@ const app = express();
 
 app.use(express.json());
 
-app.post('/user/register', (req, res) => {
-  const { username, email, password } = req.body
-  const isDataValid = validateRegister(username, email, password);
-  
-  if(!isDataValid) return res.status(400).json({ message: 'Invalid data!' })
-  
-  return res.status(201).json({ message: "User created!" })
-})
+app.post('/user/register', validateRegister, (_req, res) => res.status(201).json({ message: "User created!" }));
 
-app.post('/user/login', (req, res) => {
-  const { email, password } = req.body
-  const isDataValid = validateLogin(email, password);
-  
-  if(!isDataValid) return res.status(400).json({ message: 'Email or Peassword incorrect!' })
-  
-
-  return res.status(201).json({ token: generateToken(6) })
-})
+app.post('/user/login', validateLogin, (_req, res) => res.status(201).json({ token: generateToken(6) }));
 
 
 

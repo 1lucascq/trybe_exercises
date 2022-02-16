@@ -5,6 +5,7 @@ const express = require('express');
 // const { validateRegister, validateLogin, generateToken } = require('./validateData')
 const userRouter = require('./userRouter');
 const btcRouter = require('./btcRouter');
+const postsRouter = require('./postsRouter');
 const cors = require('cors');
 const app = express();
 
@@ -13,6 +14,8 @@ app.use(express.json());
 app.use('/user', userRouter);
 
 app.use('/btc', btcRouter);
+
+app.use('/posts', postsRouter);
 
 app.use(cors())
 

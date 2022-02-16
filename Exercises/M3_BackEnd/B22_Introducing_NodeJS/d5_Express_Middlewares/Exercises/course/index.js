@@ -2,20 +2,19 @@
 const fs = require('fs/promises');
 const express = require('express');
 // const rescue = require('express-rescue');
-const { validateRegister, validateLogin, generateToken } = require('./validateData')
+// const { validateRegister, validateLogin, generateToken } = require('./validateData')
+const userRouter = require('./userRouter');
+const btcRouter = require('./btcRouter');
+const cors = require('cors');
 const app = express();
-
 
 app.use(express.json());
 
-app.post('/user/register', validateRegister, (_req, res) => res.status(201).json({ message: "User created!" }));
+app.use('/user', userRouter);
 
-app.post('/user/login', validateLogin, (_req, res) => res.status(201).json({ token: generateToken(6) }));
+app.use('/btc', btcRouter);
 
-
-
-
-//          --> Ouvindo na porta 3001
+app.use(cors())
 
 app.listen(3001, () => console.log('Rodando na 3001'));
 

@@ -33,6 +33,13 @@ function generateToken(n) {
   return crypto.randomBytes(n).toString('hex');
 }
 
+function validateToken(req, res, next) {
+  const { token } = req.headers;
+  if (typeof token !== 'string' || token.length !== 12) {
+    return res.status(401).json({ message: 'Invalid token!' });
+  }
+  return next();
+}
 
-module.exports = { validateRegister, validateLogin, generateToken };
+module.exports = { validateRegister, validateLogin, generateToken, validateToken };
 

@@ -25,7 +25,17 @@ async function getUser (id) {
   const [result] = await connection.execute(
     'SELECT * FROM model_example.users');
   
+  if(result === undefined) return null;
   return result.find(us => us.id === +id);
+}
+
+async function updateUser (id, firstName, lastName, email, password) {
+  await connection.execute(
+    'UPDATE users SET firstName = ?, lastName = ?, email = ?, password = ? WHERE id = ?',
+    [firstName, lastName, email, password, id]
+    );
+  
+  return {id, firstName, lastName, email, password};
 }
 
 
@@ -42,5 +52,6 @@ module.exports = {
   isValid,
   getUsers,
   createUser,
-  getUser
+  getUser,
+  updateUser
 }

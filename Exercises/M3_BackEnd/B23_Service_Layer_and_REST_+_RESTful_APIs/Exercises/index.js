@@ -5,7 +5,7 @@ const port = 3000
 
 app.use(express.json());
 
-app.get('/user', async (req, res) => {
+app.get('/users', async (req, res) => {
 
   const users = await User.getUsers();
 
@@ -14,7 +14,7 @@ app.get('/user', async (req, res) => {
   return res.status(200).json(users);
 });
 
-app.get('/user/:id', async (req, res) => {
+app.get('/users/:id', async (req, res) => {
   const { id } = req.params;
   const user = await User.getUser(id);
 
@@ -23,8 +23,20 @@ app.get('/user/:id', async (req, res) => {
   return res.status(200).json(user);
 });
 
+app.put('/users/:id', User.isValid, async (req, res) => {
+  const { firstName, lastName, email, password } = req.body;
+  const { id } = req.params;
+  
+  const user = await User.updateUser(id, firstName, lastName, email, password);
 
-app.post('/user', User.isValid, async (req, res) => {
+  const oldUserData = await User.getUser(id);
+  if (!oldUserData) return res.status(404).json({ message: 'not found' });
+
+  return res.status(200).json(user);
+});
+
+
+app.post('/users', User.isValid, async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
 
   const newUser = await User.createUser(firstName, lastName, email, password);

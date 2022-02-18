@@ -14,27 +14,25 @@ function isValid (req, res, next) {
   return next();
 };
 
+async function getUsers () {
+  const [result] = await connection.execute(
+    'SELECT * FROM model_example.users');
+  
+  return result;
+}
+
+
 async function createUser (firstName, lastName, email, password) {
-  console.log('createUser')
   const result = await connection.execute(
     'INSERT INTO model_example.users (firstName, lastName, email, password) VALUES (?,?,?,?)',
     [firstName, lastName, email, password]
   );
   
-  return { id: result.insertId, firstName, lastName, email, password }
+  return { id: result.insertId, firstName, lastName, email, password };
 }
-// const createAuthor = async (firstName, middleName, lastName) => {
-//   const result = await connection.execute(
-//     'INSERT INTO model_example.authors (first_name, middle_name, last_name) VALUES (?,?,?)',
-//     [firstName, middleName, lastName],
-//   );
-  
-//   // return { id: result.insertId }
-// }
-// // No caso de retorno imediato após um "async", o "await" é dispensável.
 
 module.exports = {
   isValid,
+  getUsers,
   createUser,
-
 }

@@ -14,6 +14,15 @@ app.get('/user', async (req, res) => {
   return res.status(200).json(users);
 });
 
+app.get('/user/:id', async (req, res) => {
+  const { id } = req.params;
+  const user = await User.getUser(id);
+
+  if (!user) return res.status(404).json({ message: 'not found' });
+
+  return res.status(200).json(user);
+});
+
 
 app.post('/user', User.isValid, async (req, res) => {
   const { firstName, lastName, email, password } = req.body;

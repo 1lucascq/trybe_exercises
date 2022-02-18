@@ -21,6 +21,13 @@ async function getUsers () {
   return result;
 }
 
+async function getUser (id) {
+  const [result] = await connection.execute(
+    'SELECT * FROM model_example.users');
+  
+  return result.find(us => us.id === +id);
+}
+
 
 async function createUser (firstName, lastName, email, password) {
   const result = await connection.execute(
@@ -35,4 +42,5 @@ module.exports = {
   isValid,
   getUsers,
   createUser,
+  getUser
 }

@@ -1,6 +1,5 @@
 const ProductModel = require('../models/productModel');
 
-
 async function add(name, brand) {
   return await ProductModel.add(name, brand);
 }

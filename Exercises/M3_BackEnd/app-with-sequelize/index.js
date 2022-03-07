@@ -10,3 +10,5 @@ app.use(express.json());
 app.use('/user', UserController);
 
 app.listen(PORT, () => console.log(`On: ${PORT}!`));
+
+module.exports = app;

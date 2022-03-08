@@ -1,13 +1,29 @@
 const express = require('express');
 const router = express.Router();
 
-const { Book } = require('../');
+const { Book } = require('../src/models');
 
 router.post('/', async (req, res) => {
   const { title, author, pageQuantity } = req.body;
   try {
     const book = await Book.create({ title, author, pageQuantity });
     return res.status(201).json(book);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: 'Algo deu errado' });
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  const { title, author, pageQuantity } = req.body;
+  const { id } = req.params;
+  try {
+    const book = await Book.findByPk(req.params.id);
+    await book.update({
+      title, author, pageQuantity
+    })
+    const updatedBook = { id, title, author, pageQuantity };
+    return res.status(201).json(updatedBook);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: 'Algo deu errado' });

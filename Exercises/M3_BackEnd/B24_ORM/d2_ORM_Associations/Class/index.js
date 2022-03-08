@@ -35,7 +35,8 @@ app.get('/employees/:id', async (req, res) => {
 
     if (!employee)
       return res.status(404).json({ message: 'Funcionário não encontrado' });
-
+    
+    //          --> Lazy Loading --> Carrega os dados do endereço somente quando solicitado.
     if (includeAddresses) {
       const addresses = await Address.findAll({ where: { employeeId: id }});
       return res.status(200).json({ employee, addresses })

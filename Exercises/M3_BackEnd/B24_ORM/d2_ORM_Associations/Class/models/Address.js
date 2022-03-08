@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     street: DataTypes.STRING,
     number: DataTypes.INTEGER,
     employeeId: { type: DataTypes.INTEGER, foreignKey: true },
-    // A declaração da Foreign Key é opcional no model
+    // A declaração da Foreign Key é opcional no model --> Acaba vindo duplicado quando é feita a requisição pq tem aqui e lá.
   },
   {
     timestamps: false,

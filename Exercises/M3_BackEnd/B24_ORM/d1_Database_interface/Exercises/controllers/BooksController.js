@@ -32,7 +32,7 @@ router.put('/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const products = await Book.findAll();
+    const products = await Book.findAll({ order: [ ['title', 'ASC'], ['createdAt', 'ASC'] ]});
     return res.status(200).json(products);
   } catch (error) {
     console.log(error);

@@ -1,6 +1,6 @@
 // index.js
 const express = require('express');
-const { Address, Employee } = require('./models');
+const { Address, Employee, User, Book, UserBooks } = require('./models');
 
 const app = express();
 
@@ -49,7 +49,7 @@ app.get('/employees/:id', async (req, res) => {
   };
 });
 
-app.get('/usersbooks/:id', async (req, res) => {
+app.get('/userbooks/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findOne({

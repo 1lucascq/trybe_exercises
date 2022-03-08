@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "lucascq",
+    "password": "12345679",
+    "database": "Books_Exercise",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "lucascq",
+    "password": "12345679",
+    "database": "Books_Exercise",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "lucascq",
+    "password": "12345679",
+    "database": "Books_Exercise",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

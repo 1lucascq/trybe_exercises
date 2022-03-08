@@ -12,10 +12,19 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
   });
 
+  //           --> Relacionamento 1:1
+
+  // Employee.associate = (models) => {
+  //   Employee.hasOne(models.Address,
+  //     { foreignKey: 'employee_id', as: 'addresses' });
+  // };
+
+  //           --> Relacionamento 1:N
+
   Employee.associate = (models) => {
-    Employee.hasOne(models.Address,
+    Employee.hasMany(models.Address,
       { foreignKey: 'employee_id', as: 'addresses' });
   };
-
+  
   return Employee;
 };

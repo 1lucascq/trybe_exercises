@@ -3,8 +3,7 @@ const chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 
-const Book = require("../../../src/models/Book
-");
+const Book = require("../../../src/models/Book");
 
 const {
   sequelize,

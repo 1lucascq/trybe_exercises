@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "lucascq",
+    "password": "12345679",
+    "database": "hospital_control",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "lucascq",
+    "password": "12345679",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "lucascq",
+    "password": "12345679",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

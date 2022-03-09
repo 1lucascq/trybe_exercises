@@ -2,10 +2,13 @@
 const express = require('express');
 const { Address, Employee, User, Book } = require('./models');
 
+
 // Necessário arquivo config.js para execução de uma Transactions:
 const Sequelize = require('sequelize');
 const config = require('./config/config');
-const sequelize = new Sequelize(config.development);
+const sequelize = new Sequelize(
+  process.env.NODE_ENV === 'test' ? config.test : config.development
+);
 
 const app = express();
 
@@ -139,8 +142,10 @@ app.post('/employees', async (req, res) => {
       }, { transaction: t });
 
     });
-    return res.status(201).json({ message: 'Cadastrado com sucesso' });
-
+    return res.status(201).json({
+      id: employee.id, // esse dado será nossa referência para validar a transação
+      message: 'Cadastrado com sucesso'
+    });
     // Se chegou até aqui é porque as operações foram concluídas com sucesso,
     // não sendo necessário finalizar a transação manualmente.
     // `result` terá o resultado da transação, no caso um empregado e o endereço cadastrado

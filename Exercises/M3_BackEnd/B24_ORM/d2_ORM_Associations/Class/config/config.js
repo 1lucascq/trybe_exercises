@@ -9,9 +9,11 @@ module.exports = {
   test: {
     username: "lucascq",
     password: "12345679",
-    database: "associations",
+    database: "orm_assoc_test_db",
     host: "127.0.0.1",
-    dialect: "mysql"
+    dialect: "mysql",
+    logging: false
+
   },
   production: {
     username: "lucascq",

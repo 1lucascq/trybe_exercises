@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Patient.associate = (models) => {
-    Patient.hasOne(models.Plan,
+    Patient.belongsTo(models.Plan,
       { foreignKey: 'plan_id', as: 'plan' });
   };
 

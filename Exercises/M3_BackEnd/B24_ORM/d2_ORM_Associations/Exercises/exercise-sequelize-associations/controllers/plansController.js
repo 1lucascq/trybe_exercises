@@ -1,19 +1,20 @@
 // index.js
 const express = require("express");
-const { Patient, Plan, Surgery } = require("../models");
+const { Patient, Plan } = require("../models");
 
 const router = express.Router();
 
 // Course:
 router.get("/:id", async (req, res) => {
-  return Plans.findAll({
+  return Plan.findAll({
     where: { plan_id: req.params.id },
-    include: [{ model: Patients, as: "patients" }],
+    include: [{ model: Patient, as: "patients" }],
   })
     .then((listOfPatients) => {
       if (!listOfPatients.length) {
         return res.status(404).send({ message: "No plan found" });
       }
+      console.log('patintes', listOfPatients)
       return res.status(200).json(listOfPatients);
     })
     .catch(() => {

@@ -14,7 +14,6 @@ module.exports = async (req, res, next) => {
   /* Aquele token gerado anteriormente virá na requisição através do
      header Authorization em todas as rotas que queremos que
      sejam autenticadas. */
-  console.log('headers no validate', req.header)
     const token = req.headers['authorization'];
 
   /* Caso o token não seja informado, simplesmente retornamos

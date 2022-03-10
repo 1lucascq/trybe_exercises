@@ -19,12 +19,12 @@ app.use(
 );
 
 app.use(bodyParser.json());
+
+// descobrir depois pra que serve esse coiso de baixo
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/ping', controllers.ping);
 
 app.use(middlewares.error);
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`On: ${PORT}`));

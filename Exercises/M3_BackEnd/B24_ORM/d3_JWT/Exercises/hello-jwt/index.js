@@ -7,6 +7,7 @@ const { PORT } = process.env;
 
 const controllers = require('./controllers');
 const middlewares = require('./middlewares');
+const UserController = require('./controllers/UserController');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/ping', controllers.ping);
+app.post('/users', UserController.create);
 
 app.use(middlewares.error);
 

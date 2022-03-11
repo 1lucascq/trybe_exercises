@@ -40,6 +40,7 @@ module.exports = async (req, res) => {
     O resultado dessa função será equivalente a algo como: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJ1c2VybmFtZSI6Iml0YWxzc29kaiIsInBhc3N3b3JkIjoic2VuaGExMjMifSwiaWF0IjoxNjM4OTc1MTMyLCJleHAiOjE2Mzk1Nzk5MzJ9.hnpmu2p61Il8wdQfmUiJ7wiWXgw8UuioOU_D2RnB9kY
     */
     const token = jwt.sign({ data: user }, secret, jwtConfig);
+    // const token = jwt.sign({ id: user.id, username }, secret, jwtConfig);
 
     /* Por fim, nós devolvemos essa informação ao usuário. */
     res.status(200).json({ token });

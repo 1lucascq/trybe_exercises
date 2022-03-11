@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/users', UserController.create);
 app.get('/users/me', UserController.getMe);
+app.get('/top-secret', UserController.topSecret);
 
 app.use(middlewares.error);
 

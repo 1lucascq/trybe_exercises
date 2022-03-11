@@ -35,4 +35,18 @@ const getMe = async (req, res) => {
   }
 };
 
-module.exports = { create, getMe };
+const topSecret = async (req, res) => {
+  try {
+    const { authorization } = req.headers;
+    if (!authorization) return res.status(401).json({ message: 'Token not found!' });
+    const { login, admin } = jwt.verify(authorization, SECRET);
+    if (!admin) return res.status(401).json({ message: 'Usuário nao é admin' });
+    
+    return res.status(200).json({ login, admin });
+  } catch (e) {
+    console.log(e.message);
+    return res.status(500).json({ message: 'Erro Interno', error: e.message });
+  }
+};
+
+module.exports = { create, getMe, topSecret };

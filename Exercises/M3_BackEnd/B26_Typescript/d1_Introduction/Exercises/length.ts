@@ -1,14 +1,14 @@
-enum ValueType {
-  km = 0.001,
-  m = 1,
-  dm = 10,
-  cm = 100,
-}
+// enum ValueType {
+//   km = 0.001,
+//   m = 1,
+//   dm = 10,
+//   cm = 100,
+// }
 // Course:
-const units = ['km', 'm', 'dm', 'cm']
+const units = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm']
 
 function throwError (unity: string) {
-  throw new Error(`${unity} não é um valor válido. Tente: km, m, dm ou cm.`)
+  throw new Error(`${unity} não é um valor válido.`)
 }
 function convert (value: number, base: string, convertTo: string): number {
 

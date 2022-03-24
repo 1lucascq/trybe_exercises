@@ -5,8 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = __importDefault(require("./utils"));
 const lengthUnits = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
-const length = (0, utils_1.default)(1000, 'g', 'kg', lengthUnits);
-console.log(length);
+(0, utils_1.default)(lengthUnits);
+// module.exports = lengthUnits;
+exports.default = lengthUnits;
+// const length = exec(lengthUnits)
+// console.log(length)
 // enum ValueType {
 //   km = 0.001,
 //   m = 1,

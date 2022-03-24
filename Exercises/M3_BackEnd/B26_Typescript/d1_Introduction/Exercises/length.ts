@@ -1,7 +1,9 @@
 import exec from "./utils"
 
-const lengthUnits = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm']
-exec(lengthUnits);
+export const lengthUnits = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
+// exec(lengthUnits);
+
+// module.exports = lengthUnits;
 
 // const length = exec(lengthUnits)
 // console.log(length)

@@ -1,5 +1,7 @@
 import exec from "./utils"
 
-const weightUnits = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg']
+const massUnits = ['kg', 'hg', 'dag', 'g', 'dg', 'cg', 'mg'];
 
-exec(weightUnits);
+// exec(massUnits);
+
+export default massUnits

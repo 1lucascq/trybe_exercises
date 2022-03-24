@@ -1,5 +1,7 @@
 import exec from "./utils"
 
-const capacityUnits = ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml']
+const capacityUnits = ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml'];
 
-exec(capacityUnits);
+// exec(capacityUnits);
+
+export default capacityUnits

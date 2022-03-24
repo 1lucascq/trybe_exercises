@@ -20,4 +20,15 @@ export default class BookModel {
     const [rows] = result;
     return rows as Book[];
   }
+
+  public async create(book: Book): Promise<Book> {
+    const { title, price, author, isbn } = book;
+    const result = await this.connection.execute<ResultSetHeader>(
+      'INSERT INTO books (title, price, author, isbn) VALUES (?, ?, ?, ?)',
+      [title, price, author, isbn]
+    );
+    const [dataInserted] = result;
+    const { insertId } = dataInserted;
+    return { id: insertId, ...book };
+  }
 }

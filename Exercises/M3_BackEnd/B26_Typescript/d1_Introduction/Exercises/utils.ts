@@ -18,11 +18,11 @@ function convert (value: number, base: string, convertTo: string, units: string[
 
 
 export default function exec (units: string[]): string {
-  const prevValue: string = readline.question('Digite o valor que deseja converter: ');
-  const base: string = readline.question('Digite o formato que deseja converter: ');
-  const convertTo: string = readline.question('Digite o formato para o qual deseja converter: ');
-  const value: number = +prevValue;
-
+  const value: number = readline.questionFloat('Digite o valor que deseja converter: ');
+  const baseNum: number = readline.keyInSelect(units, 'Digite o formato que deseja converter: ');
+  const convertToNum: number = readline.keyInSelect(units, 'Digite o formato para o qual deseja converter: ');
+  const base = units[baseNum];
+  const convertTo = units[convertToNum];
   const result = `O resultado da conversão é ${convert(value, base, convertTo, units)}`
   console.log(result);
   return result;

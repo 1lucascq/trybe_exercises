@@ -10,5 +10,4 @@ const types: string[] =  ['length', 'mass', 'capacity'];
 const typesArr: string[][] = [lengthUnits, massUnits, capacityUnits]
 const selectedType: number = readline.keyInSelect(types, 'Escolha o tipo de conversão: ', { cancel: "SAIR" })
 
-
 exec(typesArr[selectedType])

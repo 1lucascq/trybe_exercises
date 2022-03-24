@@ -1,6 +1,5 @@
-import convert from "./utils"
+import exec from "./utils"
 
 const capacityUnits = ['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml']
 
-const capacity = convert(1000, 'g', 'kg', capacityUnits)
-console.log(capacity)
+exec(capacityUnits);

@@ -1,11 +1,12 @@
-import exec from "./utils"
-
-const lengthUnits = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm']
-exec(lengthUnits);
-
-// const length = exec(lengthUnits)
-// console.log(length)
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = __importDefault(require("./utils"));
+const lengthUnits = ['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
+const length = (0, utils_1.default)(1000, 'g', 'kg', lengthUnits);
+console.log(length);
 // enum ValueType {
 //   km = 0.001,
 //   m = 1,

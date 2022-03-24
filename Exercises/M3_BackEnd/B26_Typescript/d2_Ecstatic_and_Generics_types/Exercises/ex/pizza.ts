@@ -1,6 +1,6 @@
 type Slices = 4 | 6 | 8;
 type Comum = 'calabresa' | 'frango' | 'pepperoni'
-type Doce =  'nutella' | 'goiabada com queijo' | 'marshmallow' 
+type Doce = 'nutella' | 'goiabada com queijo' | 'marshmallow' 
 type Vegetariana = 'margherita' | 'palmito' | 'cogumelo'
 
 interface Pizza {

@@ -47,6 +47,18 @@ console.log(pudou.bark())
 console.log(brazilianViraLata.bark())
 console.log(pluto.bark())
 
+interface Automobile {
+  brand: string,
+  year: number,
+}
 
+interface Feline {
+  race: string,
+  wild: boolean,
+}
 
+interface Airplane {
+  brand: string,
+  comercial: boolean,
+}
 

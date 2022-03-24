@@ -47,11 +47,19 @@ class Car {
 
   turn(direction: Direction): string {
     if (direction === 'direita') return 'virando pra direita'
-    return 'virando pra esquerda'
+    if (direction === 'esquerda') return 'virando pra esquerda'
+    return 'direita ou esquerda'
   }
 }
 
 const FuscaoPreto = new Car('VW', Color.black, 4)
-console.log(FuscaoPreto)
 console.log(FuscaoPreto.speedingUp(true))
+console.log(FuscaoPreto.turn(Direction.left))
+console.log(FuscaoPreto.turn(Direction.right))
+console.log(FuscaoPreto.speedingUp(true))
+console.log(FuscaoPreto.turn(Direction.right))
+console.log(FuscaoPreto.turn(Direction.right))
+console.log(FuscaoPreto.doBrake())
 console.log(FuscaoPreto.honk())
+
+

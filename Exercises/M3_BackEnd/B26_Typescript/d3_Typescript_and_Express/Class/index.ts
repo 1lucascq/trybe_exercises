@@ -3,6 +3,9 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import 'express-async-errors'
+import BooksRoutes from './routes/BooksRoutes';
+
+
 const app = express();
 
 app.use(express.json());
@@ -12,6 +15,9 @@ const PORT = 8000;
 app.get('/', (req: Request, res: Response) => {
     res.status(StatusCodes.OK).send('Express + TypeScript')
 });
+
+app.use(BooksRoutes); // coloque essa linha antes do middleware de erro!
+
 
 app.use((err: Error , req: Request, res: Response, next: NextFunction) => {
     const { name, message, details } = err as any;

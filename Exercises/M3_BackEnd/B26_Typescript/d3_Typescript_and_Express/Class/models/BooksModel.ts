@@ -36,7 +36,7 @@ export default class BookModel {
     return { id: insertId, ...book };
   }
 
-  public async update(id: number, book: Book) {
+  public async update(id: number, book: Book): Promise<void> {
     const { title, price, author, isbn } = book;
     await this.connection.execute(
       'UPDATE books SET title=?, price=?, author=?, isbn=? WHERE id=?',
@@ -44,11 +44,12 @@ export default class BookModel {
     );
   }
 
-  public async remove(id: number) {
+  public async remove(id: number): Promise<void> {
     await this.connection.execute(
       'DELETE FROM books WHERE id=?',
       [id],
     );
   }
+
 }
 

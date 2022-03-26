@@ -32,12 +32,18 @@ class BooksController {
 
   public update = async (req: Request, res: Response) => {
     const id = Number(req.params.id);
-    const book = req.body;
+    const book = req.body as Book;
+    // const book: Book = req.body; --> Dá na mesma aparentemente
     await this.bookService.update(id, book);
 
-    res.status(StatusCodes.NO_CONTENT).json( {message: 'Book updated'} );
+    res.status(StatusCodes.NO_CONTENT).json({ message: 'Book updated' });
   };
 
-  
+  public remove = async (req: Request, res: Response) => {
+    const id: number = +req.params.id;
+    await this.bookService.remove(id)
+
+    res.status(StatusCodes.OK).json({ message: 'Book deleted' });
+  }
 }
 export default BooksController;

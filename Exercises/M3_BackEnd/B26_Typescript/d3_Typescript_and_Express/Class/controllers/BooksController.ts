@@ -11,16 +11,23 @@ class BooksController {
     res.status(StatusCodes.OK).json(books);
   };
 
-public getById = async (req: Request, res: Response) => {
-  const id: number = parseInt(req.params.id);
-  const book: Book = await this.bookService.getById(id);
+  public getById = async (req: Request, res: Response) => {
+    const id: number = parseInt(req.params.id);
+    const book: Book = await this.bookService.getById(id);
 
-  if (!book) {
-    return res.status(StatusCodes.NOT_FOUND)
-      .json({ message: 'Book not found!'});
-  }
+    if (!book) {
+      return res.status(StatusCodes.NOT_FOUND)
+        .json({ message: 'Book not found!'});
+    }
 
   res.status(StatusCodes.OK).json(book);
-}
+  }
+
+  public create = async (req: Request, res: Response) => {
+    const book = req.body;
+
+    const bookCreated = await this.bookService.create(book);
+    res.status(StatusCodes.CREATED).json(bookCreated);
+  };
 }
 export default BooksController;

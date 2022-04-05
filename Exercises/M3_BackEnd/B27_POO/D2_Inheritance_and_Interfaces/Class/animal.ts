@@ -16,7 +16,8 @@ class Animal {
 
     constructor(public x: number) { }
   */
-  constructor(public name: string, private birthDate: Date) { }
+  // constructor(public name: string, protected birthDate: Date) { } // Protected: classe filha pode ler e escrever, mas acessos externos não
+  constructor(protected birthDate: Date) { } // Protected: classe filha pode ler e escrever, mas acessos externos não
 
   get age() {
     /*Para operar com datas, vamos operar somente com milisegundos. Uma data
@@ -31,23 +32,23 @@ class Animal {
   }
 }
 
-class Mammal extends Animal {
-  walk() {
-    console.log(`${this.name} está andando!`);
-  }
-}
+// class Mammal extends Animal {
+//   walk() {
+//     console.log(`${this.name} está andando!`);
+//   }
+// }
 
-const tiger = new Mammal(
-  'Tigre',
-  new Date(Date.parse('May 03, 2020')),
-);
+// const tiger = new Mammal(
+//   'Tigre',
+//   new Date(Date.parse('May 03, 2020')),
+// );
 
-const main = (animal: Animal) => {
-  console.log(animal.age); // error: Property 'walk' does not exist on type 'Animal'.
-}
+// const main = (animal: Animal) => {
+//   console.log(animal.age); // error: Property 'walk' does not exist on type 'Animal'.
+// }
 
-main(tiger);
-tiger.walk();
+// main(tiger);
+// tiger.walk();
 
 /*
 Saída (código rodado em Mar/2022):
@@ -56,21 +57,31 @@ Tigre está andando!
 */
 
 class Bird extends Animal {
+  constructor(public name: string) {
+    super(new Date());
+  }
   fly() {
     console.log(`${this.name} está voando!`);
   }
+//   showBirthDate() {
+//     console.log(this.birthDate); // ERRO! quando birthDate é privado não é visível pra subclasse Bird.
+//   }
+  showBirthDate() {
+    console.log(this.birthDate); // Okay!
+  }
 }
 
-const parrot = new Bird(
-  'Papagaio',
-  new Date(Date.parse('Jun 07, 2017')),
-);
+// const parrot = new Bird(
+//   'Papagaio',
+//   new Date(Date.parse('Jun 07, 2017')),
+// );
 
-console.log(parrot.age);
-parrot.fly();
+// console.log(parrot.age);
+// parrot.fly();
 
 /*
 Saída (código executado em Mar/2022):
 
 Papagaio está voando!
 */
+

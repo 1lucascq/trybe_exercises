@@ -1,16 +1,29 @@
-// Para fixar:
-// Que tal exercitar a sintaxe um pouco, com um breve exercício bem simples? Juro que parece muita coisa, mas não é!
-// Crie uma classe chamada Superclass .
-// A Superclass deve possuir um atributo público isSuper
-// isSuper deve ser setado como true na inicialização.
-// A Superclass deve possuir um método público chamado sayHello , que deve imprimir um "Olá mundo!".
-// Crie uma classe chamada Subclass que herda da Superclass .
-// Crie uma função fora do escopo da Subclass que recebe um objeto da Superclass .
-// Dentro da função, chame o método sayHello do objeto passado como parâmetro.
-// Crie um objeto da Superclass e outro da Subclass .
-// Chame a função 2 vezes, passando os objetos criados.
-// Vamos agora a alguns tópicos um pouco mais avançados, atributos protegidos e o uso do super .|
 
+//                                                    PROTECTED X PRIVATE
+// class Superclass {
+//   constructor(public isSuper: boolean = true) {}
+//   protected sayHello() {
+//     console.log('Hey, world!')
+//   }
+// }
+
+// class Subclass extends Superclass {
+//   sayHello2(): void {
+//   this.sayHello()
+//   }
+// }
+
+// function testFunction(superClass: Subclass) {
+//   superClass.sayHello2() // .sayHello dá erro pq tá protected e só pode ser acessado dentro da func
+// }
+
+// const sup = new Superclass();
+// const sub = new Subclass();
+
+// // testFunction(sup);
+// // testFunction(sub);
+
+//                                                            SUPER
 class Superclass {
   constructor(public isSuper: boolean = true) {}
   public sayHello() {
@@ -19,10 +32,12 @@ class Superclass {
 }
 
 class Subclass extends Superclass {
-
+  constructor(isSuper = false) {
+    super()
+  }
 }
 
-function testFunction(superClass: Superclass) {
+function testFunction(superClass: Subclass) {
   superClass.sayHello()
 }
 

@@ -10,8 +10,14 @@
 //     - A data de nascimento não pode ser uma data no futuro
 //     - A pessoa não pode possuir mais de 120 anos
 
-class Person {
-  constructor(private _name:string, private _birthDate:Date) {}
+export default class Person {
+  private _name: string = String();
+  private _birthDate: Date = new Date();
+  constructor(name:string, birthDate:Date) {
+    this.name = name
+    this.birthDate = birthDate
+  }
+  
   get name() {
     return this._name;
   }
@@ -24,7 +30,7 @@ class Person {
   }
 
   get birthDate():Date {
-    return this.birthDate;
+    return this._birthDate;
   }
 
   set birthDate(birthDate:Date) {

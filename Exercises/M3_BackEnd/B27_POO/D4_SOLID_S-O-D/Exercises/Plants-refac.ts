@@ -101,7 +101,6 @@ class Plants {
   public async getPlantsThatNeedsSunWithId(id: string) {
     const plants = await this.getPlants();
 
-    // const filteredPlants = plants.filter(plantsNeedsSunCb(id));
     const filteredPlants = plants.filter(plantsNeedsSunCb(id));
     return filteredPlants;
   }

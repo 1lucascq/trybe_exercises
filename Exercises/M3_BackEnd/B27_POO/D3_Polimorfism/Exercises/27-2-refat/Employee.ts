@@ -6,6 +6,14 @@ export default class Employee extends Person implements Enrollable{
   private _salary: number;
   private _admissionDate: Date;
   
+  constructor(name: string, birthDate: Date, salary: number) {
+    super(name, birthDate);
+
+    this.salary = salary;
+    this._admissionDate = new Date();
+    this.enrollment = this.generateEnrollment();
+}
+
   get salary() {
     return this._salary
   }
